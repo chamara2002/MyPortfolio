@@ -1,12 +1,13 @@
 
-import { StrictMode } from 'react';
+import { StrictMode, useEffect } from 'react';
 import { createRoot } from 'react-dom/client';
 import './index.css';
 import App from './App.jsx';
 import ProjectsPage from './components/ProjectsPage';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
-import { useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 
 function ScrollToHash() {
@@ -17,6 +18,14 @@ function ScrollToHash() {
       if (el) el.scrollIntoView({ behavior: 'smooth' });
     }
   }, [hash]);
+  // Initialize AOS on mount and refresh on route change
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: true,
+    });
+    AOS.refresh();
+  }, []);
   return null;
 }
 

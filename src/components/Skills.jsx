@@ -17,7 +17,7 @@ const Skills = () => {
   const tabList = ["Coding Skills", "Professional Skills", "General Skills"];
 
   return (
-    <section id="skills" className="py-20 bg-gray-50 dark:bg-gray-950 transition-colors">
+    <section id="skills" className="py-20 bg-gray-50 dark:bg-gray-950 transition-colors" data-aos="fade-up">
       <div className="max-w-4xl mx-auto px-4">
   <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-10 text-center">Skills & Expertise</h2>
   {/* Tabs */}

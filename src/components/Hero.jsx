@@ -10,6 +10,7 @@ const Hero = () => {
     <section
       id="home"
       className="min-h-screen flex items-center justify-center bg-gradient-to-br from-white via-blue-50 to-white dark:from-gray-900 dark:via-gray-950 dark:to-gray-900 transition-colors duration-500 relative overflow-hidden"
+      data-aos="fade-up"
     >
       {/* Subtle geometric background shapes */}
   {/* Remove background squares from page bg */}
