@@ -1,5 +1,6 @@
 
 
+import { useEffect } from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
@@ -12,6 +13,9 @@ import Experience from "./components/Experience";
 import { AnimatePresence, motion } from "framer-motion";
 
 function App() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="bg-white dark:bg-gray-900 transition-colors duration-500">
       <Navbar />
