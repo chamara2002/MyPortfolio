@@ -68,6 +68,23 @@ const Hero = () => {
           <div className="absolute top-1/2 right-0 w-12 h-12 bg-blue-300 dark:bg-blue-400 opacity-40 dark:opacity-15 rounded-lg z-0" style={{filter:'blur(0.3px)'}}></div>
         </div>
       </div>
+      {/* Scroll Down Indicator */}
+      <button
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center z-20 focus:outline-none group"
+        onClick={() => {
+          const el = document.getElementById('projects');
+          if (el) {
+            el.scrollIntoView({ behavior: 'smooth' });
+          }
+        }}
+        aria-label="Scroll to Projects"
+        type="button"
+      >
+        <span className="text-gray-500 dark:text-gray-300 mb-2 text-sm animate-bounce group-hover:text-blue-600 transition-colors">Scroll Down</span>
+        <div className="w-7 h-12 border-2 border-gray-400 dark:border-gray-600 rounded-full flex items-start justify-center relative overflow-hidden group-hover:border-blue-600 transition-colors">
+          <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 animate-scroll-dot"></div>
+        </div>
+      </button>
     </section>
   );
 };
