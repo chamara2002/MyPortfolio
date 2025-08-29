@@ -28,7 +28,7 @@ const Skills = () => {
               onClick={() => setActiveTab(tab)}
               className={`px-6 py-2 rounded-full font-medium focus:outline-none transition-all relative
                 ${activeTab === tab
-                  ? 'bg-blue-500 text-white shadow dark:border-gray-900'
+                  ? 'bg-blue-700 text-white shadow dark:border-gray-900'
                   : 'bg-gray-900/80 dark:bg-gray-800/80 text-gray-300 dark:text-gray-300 hover:bg-gray-800/90'}
               `}
               style={{
