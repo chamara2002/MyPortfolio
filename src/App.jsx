@@ -10,6 +10,7 @@ import Skills from "./components/Skills";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import Experience from "./components/Experience";
+import Cursor from "./components/Cursor";
 import { AnimatePresence, motion } from "framer-motion";
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
   }, []);
   return (
     <div className="bg-white dark:bg-gray-900 transition-colors duration-500">
+      <Cursor />
       <Navbar />
       <AnimatePresence mode="wait" initial={false}>
         <motion.main
