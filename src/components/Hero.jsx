@@ -69,7 +69,18 @@ const Hero = () => {
             </a>
             
             {/* Mobile Scroll Down Indicator */}
-            <div className="md:hidden flex flex-col items-center w-full mt-14 mb-4">
+            <div 
+              className="md:hidden flex flex-col items-center w-full mt-14 mb-4 cursor-pointer" 
+              onClick={() => {
+                const el = document.getElementById('projects');
+                if (el) {
+                  el.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+              role="button"
+              tabIndex={0}
+              aria-label="Scroll to Projects"
+            >
               <span className="text-gray-500 dark:text-gray-300 mb-2 text-sm animate-bounce">Scroll Down</span>
               <div className="w-7 h-12 border-2 border-gray-400 dark:border-gray-600 rounded-full flex items-start justify-center relative overflow-hidden">
                 <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 animate-scroll-dot"></div>
