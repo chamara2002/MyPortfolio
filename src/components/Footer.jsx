@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 const Footer = () => {
   return (
   <footer className="bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 pt-12 pb-4 border-t border-gray-200 dark:border-gray-800 transition-colors">
-  <div className="max-w-6xl mx-auto px-4">
+  <div className="max-w-7xl mx-auto px-2">
         <div className="flex flex-col md:flex-row md:justify-between gap-10 md:gap-0 pb-10">
           {/* About */}
           <div className="md:w-1/2 mb-8 md:mb-0">

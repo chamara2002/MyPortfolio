@@ -26,7 +26,7 @@ const Experience = () => {
 
   return (
     <section id="experience" className="py-20 bg-gray-50 dark:bg-gray-950 transition-colors" data-aos="fade-up">
-      <div className="max-w-3xl mx-auto px-4">
+      <div className="max-w-4xl mx-auto px-2">
         <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-10 text-center">Experience</h2>
         <div className="relative border-l-2 border-blue-400 dark:border-blue-600 ml-4">
           {experienceData.map((item, idx) => (

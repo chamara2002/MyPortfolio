@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 const About = () => {
   return (
     <section id="about" className="py-20 bg-white dark:bg-gray-900 transition-colors" data-aos="fade-up">
-      <div className="max-w-3xl mx-auto px-4">
+      <div className="max-w-4xl mx-auto px-2">
         {/* Section Header */}
         <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-10 text-center">About Me</h2>
         <motion.div

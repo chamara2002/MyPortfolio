@@ -14,7 +14,7 @@ const ProjectsPage = () => {
         exit={{ opacity: 0, x: -60 }}
         transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
       >
-        <div className="max-w-6xl mx-auto px-4">
+        <div className="max-w-7xl mx-auto px-2">
           <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-10 text-center">All Projects</h1>
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {projects.map((project, idx) => (

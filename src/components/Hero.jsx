@@ -15,7 +15,7 @@ const Hero = () => {
       {/* Subtle geometric background shapes */}
   {/* Remove background squares from page bg */}
       
-      <div className="flex flex-col md:flex-row items-center justify-between gap-8 w-full max-w-6xl px-6 py-12 z-10 animate-fade-in">
+      <div className="flex flex-col md:flex-row items-center justify-between gap-8 w-full max-w-7xl px-3 py-12 z-10 animate-fade-in">
         {/* Text Side */}
         <div className="flex-1 flex flex-col items-start text-left">
           <span className="text-lg text-gray-600 dark:text-gray-300 mb-2">Hello, I'm</span>

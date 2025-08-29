@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 const Contact = () => {
   return (
     <section id="contact" className="py-20 bg-gray-50 dark:bg-gray-950 transition-colors" data-aos="fade-up">
-      <div className="max-w-6xl mx-auto px-4">
+      <div className="max-w-7xl mx-auto px-2">
         <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-10 text-center">Let's Connect</h2>
   <div className="flex flex-col items-center justify-center gap-12 md:gap-16">
           {/* Left side: Contact Info Cards */}
