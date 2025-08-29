@@ -26,7 +26,7 @@ const Navbar = () => {
   return (
     <nav className="fixed w-full z-30 bg-white/80 dark:bg-gray-900/80 backdrop-blur border-b border-gray-200 dark:border-gray-800 transition-colors">
       <div className="max-w-6xl mx-auto px-4 flex items-center justify-between h-16">
-        <a href="#home" className="font-bold text-xl tracking-tight text-gray-900 dark:text-white">Chamara</a>
+        <a href="#home" className="font-bold text-xl tracking-tight text-gray-900 dark:text-white">Chamara Perera</a>
         <div className="hidden md:flex gap-6 items-center">
           {navLinks.map(link => (
             <motion.a

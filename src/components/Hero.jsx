@@ -35,7 +35,7 @@ const Hero = () => {
             </span>
           </h2>
           <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 mb-10 max-w-xl">
-            I create beautiful, functional, and responsive websites using modern technologies. Specializing in unique digital experiences that blend innovation with usability.
+            I am Chamara Perera, an undergraduate IT student with hands-on experience as an IT trainee. I am a quick learner with a strong interest in software development and emerging technologies.
           </p>
           <div className="flex gap-4">
             <a
