@@ -1,5 +1,5 @@
 import React from "react";
-import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaEnvelope, FaDownload } from "react-icons/fa";
 import { motion } from "framer-motion";
 
 const About = () => {
@@ -37,9 +37,10 @@ const About = () => {
             <a
               href="/Chamara_Perera_Resume.pdf"
               download
-              className="inline-block px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold shadow hover:bg-blue-700 transition-colors"
+              className="inline-block px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold shadow hover:bg-blue-700 transition-colors flex items-center gap-2"
             >
               Download CV
+              <FaDownload className="ml-2 text-lg" />
             </a>
           </div>
         </motion.div>
