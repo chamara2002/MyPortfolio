@@ -32,7 +32,7 @@ const Education = () => {
                 {isCurrent ? (
                   <motion.div
                     className="absolute w-4 h-4 bg-blue-400 dark:bg-blue-600 rounded-full -left-4 top-2 border-4 border-white dark:border-gray-950 ring-4 ring-blue-300 dark:ring-blue-700 z-10"
-                    animate={{ scale: [1, 0.8, 1] }}
+                    animate={{ scale: [1, 0.5, 1] }}
                     transition={{ repeat: Infinity, duration: 2, ease: 'easeInOut' }}
                   />
                 ) : (
