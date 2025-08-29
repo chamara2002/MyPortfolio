@@ -41,7 +41,7 @@ export const projects = [
     description:
       "Collaboratively developed a game zone management platform using React.js (Vite), Node.js, and MongoDB, featuring management of games, food services, staff, bookings, events, and resources. Demonstrated teamwork and technical skills to streamline operations and enhance user experience.",
     tech: ["React.js", "Vite", "Node.js", "MongoDB"],
-    github: "",
+    github: "https://github.com/chamara2002/LakeView",
     demo: "",
     screenshot: ""
   },
@@ -50,7 +50,7 @@ export const projects = [
     description:
       "Developed a mobile task management app using Kotlin and XML in Android Studio, enabling users to add, edit, and delete tasks. Implemented persistent storage with SharedPreferences to retain data across sessions, ensuring reliable daily task management.",
     tech: ["Kotlin", "XML", "Android Studio", "SharedPreferences"],
-    github: "",
+    github: "https://github.com/chamara2002/TaskManager",
     demo: "",
     screenshot: ""
   }
