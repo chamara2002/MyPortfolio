@@ -3,12 +3,12 @@ import { motion, useAnimation } from "framer-motion";
 
 const educationData = [
   {
-    title: "B.Sc. (Hons) in IT",
+    title: "BSc (Hons) in Information Technology Specializing in Information Technology",
     place: "Sri Lanka Institute of Information Technology",
     period: "2022–Present",
   },
   {
-    title: "GCE A/L Technology Stream",
+    title: "GCE A/L - Technology Stream",
     place: "",
     period: "2021/2022",
   },
