@@ -12,7 +12,9 @@ const Footer = () => {
           <div className="md:w-1/2 mb-8 md:mb-0">
             <h2 className="text-2xl font-bold text-blue-400 mb-2">Chamara Perera</h2>
             <p className="text-gray-400 text-sm leading-relaxed">
-              Young & dynamic individual experienced in IT & Marketing, focused on working with organizations that promise a challenging career in a progressive environment with cooperative work culture. Fosters steady growth and leverages strength & knowledge to become a successful & valued individual.
+              I am an undergraduate IT student with hands-on experience<br />
+              as an IT trainee. I am a quick learner with a strong passion for<br />
+              software development and emerging technologies.
             </p>
           </div>
           {/* Quick Links */}
@@ -44,7 +46,7 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-2">
                 <FaTwitter className="text-xl" />
-                <a href="#" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition-colors">Twitter</a>
+                <a href="https://x.com/chamara__2002" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition-colors">Twitter</a>
               </li>
               <li className="flex items-center gap-2">
                 <FaEnvelope className="text-xl" />
