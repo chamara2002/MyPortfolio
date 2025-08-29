@@ -26,10 +26,10 @@ const Skills = () => {
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
-              className={`px-6 py-2 rounded-full font-medium focus:outline-none transition-all relative
+              className={`px-6 py-2 rounded-full font-medium focus:outline-none transition-all relative border
                 ${activeTab === tab
-                  ? 'bg-blue-700 text-white shadow dark:border-gray-900'
-                  : 'bg-gray-900/80 dark:bg-gray-800/80 text-gray-300 dark:text-gray-300 hover:bg-gray-800/90'}
+                  ? 'bg-blue-700 text-white dark:bg-blue-500 dark:text-white border-blue-700 dark:border-blue-400 shadow'
+                  : 'bg-gray-200 text-gray-900 border-gray-300 hover:bg-gray-300 dark:bg-gray-800 dark:text-gray-200 dark:border-gray-700 dark:hover:bg-gray-700'}
               `}
               style={{
                 boxShadow: activeTab === tab ? '0 0 0 2px #38bdf8' : undefined

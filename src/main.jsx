@@ -4,7 +4,19 @@ import { createRoot } from 'react-dom/client';
 import './index.css';
 import App from './App.jsx';
 import ProjectsPage from './components/ProjectsPage';
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation, useNavigate } from 'react-router-dom';
+// Redirects to home (/) after refresh if not already on home
+function RedirectToHome() {
+  const location = useLocation();
+  const navigate = useNavigate();
+  // Only run on first mount (refresh)
+  useEffect(() => {
+    if (location.pathname !== '/') {
+      navigate('/', { replace: true });
+    }
+  }, []); // empty deps: only on mount
+  return null;
+}
 import { AnimatePresence, motion } from 'framer-motion';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -70,6 +82,7 @@ function AnimatedRoutes() {
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
+  <RedirectToHome />
       <ScrollToHash />
       <AnimatedRoutes />
     </BrowserRouter>
