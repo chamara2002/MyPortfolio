@@ -30,7 +30,7 @@ const Experience = () => {
         <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-10 text-center">Experience</h2>
         <div className="relative border-l-2 border-blue-400 dark:border-blue-600 ml-4">
           {experienceData.map((item, idx) => (
-            <div key={idx} className="mb-12 ml-8 relative group">
+            <div key={idx} className="mb-12 ml-10 relative group">
               <motion.div
                 className="absolute w-6 h-6 bg-gradient-to-tr from-blue-400 to-blue-600 dark:from-blue-600 dark:to-blue-400 rounded-full -left-8 top-2 border-4 border-white dark:border-gray-950 ring-4 ring-blue-200 dark:ring-blue-800 z-20 shadow-lg"
                 animate={controls}
