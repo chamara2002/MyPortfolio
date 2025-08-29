@@ -14,8 +14,13 @@ const About = () => {
           viewport={{ once: true }}
         >
           <div className="w-40 h-40 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center overflow-hidden">
-            {/* Replace with your profile image */}
-            <span className="text-6xl text-gray-400 dark:text-gray-500">64</span>
+              {/* Replace with your profile image */}
+              {/* Example placeholder image, replace src with your own image if available */}
+              <img
+                src="https://ui-avatars.com/api/?name=Chamara+Perera&background=4B5563&color=fff&size=160"
+                alt="Chamara Perera profile"
+                className="w-full h-full object-cover rounded-full"
+              />
           </div>
         </motion.div>
         <motion.div

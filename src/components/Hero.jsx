@@ -11,7 +11,7 @@ const Hero = () => {
         transition={{ duration: 0.8, ease: 'easeOut' }}
         viewport={{ once: true }}
       >
-        Hi, Im <span className="text-blue-600 dark:text-blue-400">Chamara</span>  IT Student & Developer
+        Hi, I'm <span className="text-blue-600 dark:text-blue-400">Chamara</span> &ndash; IT Student &amp; Developer
       </motion.h1>
       <motion.p
         className="text-lg md:text-2xl text-gray-700 dark:text-gray-300 mb-8 max-w-2xl"
