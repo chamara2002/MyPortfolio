@@ -26,16 +26,22 @@ const About = () => {
         >
           <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">About Me</h2>
           <p className="text-gray-700 dark:text-gray-300 mb-4">
-            I am an IT student passionate about software development, web technologies, and the ever-evolving IT industry. I enjoy building modern, scalable applications and learning new tools and frameworks.
+            I am Chamara Perera, an undergraduate IT student with hands-on experience as an IT trainee. During my internship, I gained practical knowledge in troubleshooting, system support, and working with various IT tools. I am a quick learner with a strong interest in software development and emerging technologies, seeking opportunities to enhance my skills and contribute to innovative IT projects.
           </p>
+          <div className="flex flex-col gap-1 text-gray-600 dark:text-gray-400 text-sm mb-2">
+            <span><strong>Full Name:</strong> Lathpandurage Chamara Charika Perera</span>
+            <span><strong>Location:</strong> Kadawatha, Sri Lanka</span>
+            <span><strong>Phone:</strong> <a href="tel:+94785347037" className="hover:text-blue-600">+94 78 5347 037</a></span>
+            <span><strong>Email:</strong> <a href="mailto:lccperera2002@gmail.com" className="hover:text-blue-600">lccperera2002@gmail.com</a></span>
+          </div>
           <div className="flex gap-4 mt-2">
-            <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" className="text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-2xl">
+            <a href="https://github.com/chamara2002" target="_blank" rel="noopener noreferrer" className="text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-2xl">
               <FaGithub />
             </a>
-            <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer" className="text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-2xl">
+            <a href="https://linkedin.com/in/chamara-perera-04b2b3285" target="_blank" rel="noopener noreferrer" className="text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-2xl">
               <FaLinkedin />
             </a>
-            <a href="mailto:your@email.com" className="text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-2xl">
+            <a href="mailto:lccperera2002@gmail.com" className="text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-2xl">
               <FaEnvelope />
             </a>
           </div>
