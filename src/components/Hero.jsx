@@ -41,7 +41,7 @@ const Hero = () => {
           <div className="flex gap-4">
             <a
               href="#projects"
-              className="px-7 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-lg font-semibold shadow transition-colors flex items-center gap-2 text-lg"
+              className="px-7 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold shadow transition-colors flex items-center gap-2 text-lg"
             >
               View My Work <span className="text-2xl">→</span>
             </a>

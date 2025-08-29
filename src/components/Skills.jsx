@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const Skills = () => {
   // Define skill categories
-  const [activeTab, setActiveTab] = useState("General Skills");
+  const [activeTab, setActiveTab] = useState("Coding Skills");
   const coreSkills = ["React", "Node.js"];
   // You may want to update your skills.js to include a 'category' property for each skill
   const categorizedSkills = {
@@ -28,12 +28,11 @@ const Skills = () => {
               onClick={() => setActiveTab(tab)}
               className={`px-6 py-2 rounded-full font-medium focus:outline-none transition-all relative
                 ${activeTab === tab
-                  ? 'bg-blue-500 text-white shadow border border-white dark:border-gray-900'
+                  ? 'bg-blue-500 text-white shadow dark:border-gray-900'
                   : 'bg-gray-900/80 dark:bg-gray-800/80 text-gray-300 dark:text-gray-300 hover:bg-gray-800/90'}
               `}
               style={{
-                boxShadow: activeTab === tab ? '0 0 0 2px #38bdf8' : undefined,
-                border: activeTab === tab ? '2px solid #fff' : undefined
+                boxShadow: activeTab === tab ? '0 0 0 2px #38bdf8' : undefined
               }}
             >
               {tab}
