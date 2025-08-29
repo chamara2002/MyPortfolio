@@ -8,6 +8,7 @@ import Projects from "./components/Projects";
 import Skills from "./components/Skills";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import Experience from "./components/Experience";
 import { AnimatePresence, motion } from "framer-motion";
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
           <Hero />
           <Projects />
           <Education />
+          <Experience />
           <Skills />
           <About />
           <Contact />

@@ -34,6 +34,13 @@ const Projects = () => {
               viewport={{ once: true }}
             >
               <div>
+                {project.screenshot && (
+                  <img
+                    src={require(`../assets/${project.screenshot}`)}
+                    alt={project.name + ' screenshot'}
+                    className="w-full h-40 object-cover rounded mb-4 border border-gray-200 dark:border-gray-700"
+                  />
+                )}
                 <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                   {project.name}
                 </h3>
@@ -57,9 +64,6 @@ const Projects = () => {
             </motion.div>
           ))}
         </motion.div>
-        <div className="flex justify-center mt-10">
-          <a href="/projects" className="px-8 py-3 bg-blue-600 text-white rounded-lg font-semibold shadow hover:bg-blue-700 transition-colors">View All Projects</a>
-        </div>
       </div>
     </section>
   );
