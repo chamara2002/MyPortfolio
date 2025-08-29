@@ -1,14 +1,17 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { useForm, ValidationError } from '@formspree/react';
 
 const Contact = () => {
+  const [state, handleSubmit] = useForm("mvgbzjgv");
+  
   return (
     <section id="contact" className="py-20 bg-gray-50 dark:bg-gray-950 transition-colors" data-aos="fade-up">
       <div className="max-w-7xl mx-auto px-2">
         <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-10 text-center">Let's Connect</h2>
-  <div className="flex flex-col items-center justify-center gap-12 md:gap-16">
+  <div className="flex flex-col md:flex-row items-center justify-center gap-12 md:gap-16">
           {/* Left side: Contact Info Cards */}
-          <div className="w-full flex flex-col items-center">
+          <div className="w-full md:w-1/2 flex flex-col items-center">
             <p className="text-gray-900 dark:text-gray-200 mb-8 text-lg max-w-md text-center">I'm always open to discussing new projects, creative ideas or opportunities to be part of your visions.</p>
             <div className="flex flex-col gap-6 w-full max-w-md">
               <div className="flex items-center gap-4 bg-white dark:bg-gray-800 text-gray-900 dark:text-white rounded-xl p-3 shadow-md w-full">
@@ -44,59 +47,115 @@ const Contact = () => {
             </div>
           </div>
           {/* Right side: Contact Form and Links */}
-          {/*
           <div className="md:w-1/2 w-full flex flex-col items-center md:items-end">
-            <motion.form
-              className="flex flex-col gap-6 bg-white dark:bg-gray-800 p-8 rounded-xl shadow-md w-full max-w-lg"
-              initial="hidden"
-              whileInView="visible"
-              variants={{
-                hidden: {},
-                visible: {
-                  transition: {
-                    staggerChildren: 0.13,
-                    delayChildren: 0.2
+            {state.succeeded ? (
+              <div className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-md w-full max-w-lg flex flex-col items-center">
+                <div className="text-green-500 mb-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Message Sent!</h3>
+                <p className="text-gray-600 dark:text-gray-300 text-center">Thank you for reaching out. I'll get back to you as soon as possible.</p>
+              </div>
+            ) : (
+              <motion.form
+                onSubmit={handleSubmit}
+                className="flex flex-col gap-6 bg-white dark:bg-gray-800 p-8 rounded-xl shadow-md w-full max-w-lg"
+                initial="hidden"
+                whileInView="visible"
+                variants={{
+                  hidden: {},
+                  visible: {
+                    transition: {
+                      staggerChildren: 0.13,
+                      delayChildren: 0.2
+                    }
                   }
-                }
-              }}
-              viewport={{ once: true }}
-            >
-              <motion.input
-                type="text"
-                placeholder="Name"
-                className="px-4 py-3 rounded bg-gray-100 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-400"
-                required
-                variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } }}
-                transition={{ duration: 0.5, type: 'spring', stiffness: 80 }}
-              />
-              <motion.input
-                type="email"
-                placeholder="Email"
-                className="px-4 py-3 rounded bg-gray-100 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-400"
-                required
-                variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } }}
-                transition={{ duration: 0.5, type: 'spring', stiffness: 80 }}
-              />
-              <motion.textarea
-                placeholder="Message"
-                rows="5"
-                className="px-4 py-3 rounded bg-gray-100 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-400"
-                required
-                variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } }}
-                transition={{ duration: 0.5, type: 'spring', stiffness: 80 }}
-              ></motion.textarea>
-              <motion.button
-                type="submit"
-                className="px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold shadow hover:bg-blue-700 transition-colors flex items-center justify-center gap-2"
-                variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } }}
-                transition={{ duration: 0.5, type: 'spring', stiffness: 80 }}
+                }}
+                viewport={{ once: true }}
               >
-                Send Message
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-5 h-5 ml-1"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M22 2L11 13" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M22 2L15 22L11 13L2 9L22 2Z" /></svg>
-              </motion.button>
-            </motion.form>
+                <motion.div
+                  variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } }}
+                  transition={{ duration: 0.5, type: 'spring', stiffness: 80 }}
+                >
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                    Name
+                  </label>
+                  <input
+                    id="name"
+                    type="text"
+                    name="name"
+                    placeholder="Your name"
+                    className="w-full px-4 py-3 rounded bg-gray-100 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-400"
+                    required
+                  />
+                </motion.div>
+                
+                <motion.div
+                  variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } }}
+                  transition={{ duration: 0.5, type: 'spring', stiffness: 80 }}
+                >
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                    Email Address
+                  </label>
+                  <input
+                    id="email"
+                    type="email" 
+                    name="email"
+                    placeholder="Your email"
+                    className="w-full px-4 py-3 rounded bg-gray-100 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-400"
+                    required
+                  />
+                  <ValidationError 
+                    prefix="Email" 
+                    field="email"
+                    errors={state.errors}
+                    className="text-red-500 text-sm mt-1"
+                  />
+                </motion.div>
+                
+                <motion.div
+                  variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } }}
+                  transition={{ duration: 0.5, type: 'spring', stiffness: 80 }}
+                >
+                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                    Message
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    placeholder="Your message"
+                    rows="5"
+                    className="w-full px-4 py-3 rounded bg-gray-100 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-400"
+                    required
+                  ></textarea>
+                  <ValidationError 
+                    prefix="Message" 
+                    field="message"
+                    errors={state.errors}
+                    className="text-red-500 text-sm mt-1"
+                  />
+                </motion.div>
+                
+                <motion.button
+                  type="submit"
+                  disabled={state.submitting}
+                  className="px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold shadow hover:bg-blue-700 transition-colors flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
+                  variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } }}
+                  transition={{ duration: 0.5, type: 'spring', stiffness: 80 }}
+                >
+                  {state.submitting ? 'Sending...' : 'Send Message'}
+                  {!state.submitting && (
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-5 h-5 ml-1">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M22 2L11 13" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M22 2L15 22L11 13L2 9L22 2Z" />
+                    </svg>
+                  )}
+                </motion.button>
+              </motion.form>
+            )}
           </div>
-          */}
         </div>
       </div>
     </section>
