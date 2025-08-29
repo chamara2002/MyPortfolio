@@ -18,7 +18,7 @@ const Contact = () => {
                 </span>
                 <div>
                   <div className="font-semibold text-lg">Email</div>
-                  <div className="text-gray-300 text-base break-all">gallagepasinduhansana@gmail.com</div>
+                     <a href="mailto:lccperera2002@gmail.com" className="text-gray-300 text-base break-all hover:underline">lccperera2002@gmail.com</a>
                 </div>
               </div>
               <div className="flex items-center gap-4 bg-[#232a36] dark:bg-gray-800 text-white rounded-xl p-3 shadow-md w-full">
@@ -28,7 +28,7 @@ const Contact = () => {
                 </span>
                 <div>
                   <div className="font-semibold text-lg">Phone</div>
-                  <div className="text-gray-300 text-base">+94 74 160 5140</div>
+                     <a href="tel:+94785347037" className="text-gray-300 text-base hover:underline">+94 78 5347 037</a>
                 </div>
               </div>
               <div className="flex items-center gap-4 bg-[#232a36] dark:bg-gray-800 text-white rounded-xl p-3 shadow-md w-full">
@@ -38,7 +38,7 @@ const Contact = () => {
                 </span>
                 <div>
                   <div className="font-semibold text-lg">Location</div>
-                  <div className="text-gray-300 text-base">Elpitiya, Sri Lanka</div>
+                     <a href="https://www.google.com/maps/place/Kadawatha,+Sri+Lanka" target="_blank" rel="noopener noreferrer" className="text-gray-300 text-base hover:underline">Kadawatha, Sri Lanka</a>
                 </div>
               </div>
             </div>
@@ -87,7 +87,6 @@ const Contact = () => {
               <motion.button
                 type="submit"
                 className="px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold shadow hover:bg-blue-700 transition-colors flex items-center justify-center gap-2"
-                whileHover={{ scale: 1.07 }}
                 variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } }}
                 transition={{ duration: 0.5, type: 'spring', stiffness: 80 }}
               >
