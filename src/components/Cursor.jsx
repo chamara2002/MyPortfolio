@@ -7,8 +7,20 @@ const Cursor = () => {
   const [clicked, setClicked] = useState(false);
   const [linkHovered, setLinkHovered] = useState(false);
   const [hidden, setHidden] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    // Check if device is mobile based on screen width
+    const checkIfMobile = () => {
+      setIsMobile(window.innerWidth <= 768); // 768px is common breakpoint for mobile
+    };
+
+    // Run on initial load
+    checkIfMobile();
+
+    // Add resize listener
+    window.addEventListener("resize", checkIfMobile);
+
     const addEventListeners = () => {
       document.addEventListener("mousemove", onMouseMove);
       document.addEventListener("mouseenter", onMouseEnter);
@@ -57,11 +69,18 @@ const Cursor = () => {
       });
     };
 
-    addEventListeners();
     handleLinkHoverEvents();
 
-    return () => removeEventListeners();
-  }, []);
+    // Only add mouse event listeners if not on mobile
+    if (!isMobile) {
+      addEventListeners();
+    }
+
+    return () => {
+      removeEventListeners();
+      window.removeEventListener("resize", checkIfMobile);
+    };
+  }, [isMobile]); // Add isMobile as dependency
 
   // Create a delayed effect for the trailing element
   useEffect(() => {
@@ -170,29 +189,33 @@ const Cursor = () => {
 
   return (
     <>
-      {/* Trailing effect cursor (outermost) */}
-      <motion.div
-        className="cursor-trailing z-40 fixed top-0 left-0 rounded-full pointer-events-none mix-blend-difference"
-        variants={cursorTrailingVariants}
-        animate={clicked ? "click" : linkHovered ? "hover" : "default"}
-        transition={trailingTransition}
-      />
-      
-      {/* Main cursor ring */}
-      <motion.div
-        className="cursor-outer z-50 fixed top-0 left-0 rounded-full pointer-events-none mix-blend-difference"
-        variants={cursorOuterVariants}
-        animate={clicked ? "click" : linkHovered ? "hover" : "default"}
-        transition={springTransition}
-      />
-      
-      {/* Inner cursor dot */}
-      <motion.div
-        className="cursor-inner z-50 fixed top-0 left-0 rounded-full pointer-events-none mix-blend-difference"
-        variants={cursorInnerVariants}
-        animate={clicked ? "click" : linkHovered ? "hover" : "default"}
-        transition={springTransition}
-      />
+      {!isMobile && (
+        <>
+          {/* Trailing effect cursor (outermost) */}
+          <motion.div
+            className="cursor-trailing z-40 fixed top-0 left-0 rounded-full pointer-events-none mix-blend-difference"
+            variants={cursorTrailingVariants}
+            animate={clicked ? "click" : linkHovered ? "hover" : "default"}
+            transition={trailingTransition}
+          />
+          
+          {/* Main cursor ring */}
+          <motion.div
+            className="cursor-outer z-50 fixed top-0 left-0 rounded-full pointer-events-none mix-blend-difference"
+            variants={cursorOuterVariants}
+            animate={clicked ? "click" : linkHovered ? "hover" : "default"}
+            transition={springTransition}
+          />
+          
+          {/* Inner cursor dot */}
+          <motion.div
+            className="cursor-inner z-50 fixed top-0 left-0 rounded-full pointer-events-none mix-blend-difference"
+            variants={cursorInnerVariants}
+            animate={clicked ? "click" : linkHovered ? "hover" : "default"}
+            transition={springTransition}
+          />
+        </>
+      )}
     </>
   );
 };
