@@ -1,5 +1,3 @@
-
-
 import { useEffect } from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
@@ -16,6 +14,29 @@ import { AnimatePresence, motion } from "framer-motion";
 function App() {
   useEffect(() => {
     window.scrollTo(0, 0);
+    
+    // Disable print screen and other screenshot methods
+    const handleKeyDown = (e) => {
+      // Print Screen key (keyCode 44)
+      if (e.key === 'PrintScreen' || e.keyCode === 44) {
+        e.preventDefault();
+        return false;
+      }
+      
+      // Ctrl+P (print dialog)
+      if ((e.ctrlKey || e.metaKey) && e.key === 'p') {
+        e.preventDefault();
+        return false;
+      }
+    };
+    
+    // Add event listener
+    window.addEventListener('keydown', handleKeyDown, true);
+    
+    // Clean up on component unmount
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown, true);
+    };
   }, []);
   return (
     <div className="bg-white dark:bg-gray-900 transition-colors duration-500">

@@ -34,6 +34,14 @@
       setLoaderBg();
       // Listen for theme changes (from React)
       window.addEventListener('storage', setLoaderBg);
+      // Disable Print Screen key
+      window.addEventListener('keydown', function(e) {
+        // Print Screen key code is 44
+        if (e.key === 'PrintScreen' || e.keyCode === 44) {
+          e.preventDefault();
+          return false;
+        }
+      }, true);
       // Hide loader when React is ready
       window.addEventListener('DOMContentLoaded', function() {
         const root = document.getElementById('root');
