@@ -6,3 +6,24 @@ html {
 @tailwind components;
 @tailwind utilities;
 
+/* Custom cursor styles */
+body {
+  cursor: none;
+}
+
+/* Show default cursor on mobile devices */
+@media (max-width: 768px) {
+  body {
+    cursor: auto;
+  }
+  .cursor {
+    display: none !important;
+  }
+}
+
+/* Ensure elements with hover states show the pointer cursor on mobile */
+@media (max-width: 768px) {
+  a, button, [role="button"], input[type="button"], input[type="submit"] {
+    cursor: pointer;
+  }
+}
