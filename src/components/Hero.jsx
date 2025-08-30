@@ -115,8 +115,8 @@ const Hero = () => {
         aria-label="Scroll to Projects"
         type="button"
       >
-        <span className="text-gray-500 dark:text-gray-300 mb-2 text-sm animate-bounce group-hover:text-blue-600 transition-colors">Scroll Down</span>
-        <div className="w-7 h-12 border-2 border-gray-400 dark:border-gray-600 rounded-full flex items-start justify-center relative overflow-hidden group-hover:border-blue-600 transition-colors">
+        <span className="text-gray-500 dark:text-gray-300 mb-2 text-sm animate-bounce transition-colors">Scroll Down</span>
+        <div className="w-7 h-12 border-2 border-gray-400 dark:border-gray-600 rounded-full flex items-start justify-center relative overflow-hidden transition-colors">
           <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 animate-scroll-dot"></div>
         </div>
       </button>

@@ -4,7 +4,7 @@ export const projects = [
     name: "StockSpot Inventory Management System",
     description:
       "Developed a web application to manage office inventory using Node.js, React.js, Express.js, and MariaDB. The system tracks items, manages warranties, and generates reports. Deployed on Windows Server and compatible with Red Hat Linux, using PM2 for process management and enabling multi-user access.",
-    tech: ["Node.js", "React.js", "Express.js", "MariaDB", "PM2", "Windows Server", "Red Hat Linux"],
+    tech: ["Node.js", "React.js", "Express.js", "CSS3", "MariaDB", "PM2", "Windows Server", "Red Hat Linux"],
     github: "",
     demo: "",
     screenshot: ""
@@ -13,7 +13,7 @@ export const projects = [
     name: "SpaceChecker Parking Space Detection System",
     description:
       "Developed a Python desktop application using OpenCV, YOLOv8, and Tkinter for real-time parking space detection, featuring an intuitive slot management interface and packaged as a standalone executable with NSIS.",
-    tech: ["Python", "OpenCV", "YOLOv8", "Tkinter", "NSIS"],
+    tech: ["Python", "OpenCV", "YOLOv8", "Tkinter", "NSIS", "RTSP", "Numpy"],
     github: "",
     demo: "",
     screenshot: ""
@@ -22,7 +22,7 @@ export const projects = [
     name: "Object Detection and Tracking System",
     description:
       "Developed a Python-based real-time object detection and tracking system using YOLOv8, OpenCV, and Tkinter to monitor CCTV feeds and send notifications when a tracked item goes missing, enhancing security.",
-    tech: ["Python", "YOLOv8", "OpenCV", "Tkinter", "CCTV"],
+    tech: ["Python", "YOLOv8", "OpenCV", "Tkinter", "CCTV", "RTSP"],
     github: "",
     demo: "",
     screenshot: ""
@@ -40,7 +40,7 @@ export const projects = [
     name: "LakeView Gaming Zone Web Application",
     description:
       "Collaboratively developed a game zone management platform using React.js (Vite), Node.js, and MongoDB, featuring management of games, food services, staff, bookings, events, and resources. Demonstrated teamwork and technical skills to streamline operations and enhance user experience.",
-    tech: ["React.js", "Vite", "Node.js", "MongoDB"],
+    tech: ["React.js", "Vite", "Node.js", "MongoDB", "CSS3"],
     github: "https://github.com/chamara2002/LakeView",
     demo: "",
     screenshot: ""
