@@ -12,9 +12,8 @@ const Footer = () => {
           <div className="md:w-1/2 mb-8 md:mb-0">
             <h2 className="text-2xl font-bold text-blue-600 dark:text-blue-400 mb-2">Chamara Perera</h2>
             <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-              I am an undergraduate IT student with hands-on experience<br />
-              as an IT trainee. I am a quick learner with a strong passion for<br />
-              software development and emerging technologies.
+              I’m an IT undergraduate passionate about building web and software<br />  
+              solutions that are functional, user-friendly, and innovative.<br />
             </p>
           </div>
           {/* Quick Links */}
