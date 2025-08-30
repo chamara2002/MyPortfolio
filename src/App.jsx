@@ -19,7 +19,6 @@ function App() {
   }, []);
   return (
     <div className="bg-white dark:bg-gray-900 transition-colors duration-500">
-      <Cursor />
       <Navbar />
       <AnimatePresence mode="wait" initial={false}>
         <motion.main
