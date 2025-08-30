@@ -44,6 +44,11 @@ const Projects = () => {
                 <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                   {project.name}
                 </h3>
+                {project.association && (
+                  <p className="text-sm text-blue-600 dark:text-blue-400 mb-2 font-medium">
+                    {project.association}
+                  </p>
+                )}
                 <p className="text-gray-700 dark:text-gray-300 mb-4">{project.description}</p>
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.tech.map((tech, i) => (

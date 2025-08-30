@@ -5,7 +5,7 @@ const educationData = [
   {
     title: "BSc (Hons) in Information Technology Specializing in Information Technology",
     place: "Sri Lanka Institute of Information Technology (SLIIT)",
-    period: "2022–Present",
+    period: "2023–Present",
   },
   {
     title: "GCE A/L - Technology Stream",
