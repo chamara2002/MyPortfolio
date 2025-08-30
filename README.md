@@ -12,4 +12,4 @@
 
 This project reflects my web development skills and design sensibilities, providing a professional platform to present my work and achievements.
 
-🌐 [View Live Portfolio](https://chamara-perera.vercel.app)
+[View Live Portfolio](https://chamara-perera.vercel.app)
