@@ -20,7 +20,7 @@ const Hero = () => {
         <div className="flex-1 flex flex-col items-start text-left">
           <span className="text-lg text-gray-600 dark:text-gray-300 mb-2">Hello, I'm</span>
           <h1 className="text-4xl md:text-6xl font-extrabold text-blue-600 dark:text-blue-400 mb-2 leading-tight">
-            Chamara
+            Chamara Perera
           </h1>
           <h2 className="text-3xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4 leading-tight flex flex-wrap">
             <span>
@@ -35,7 +35,7 @@ const Hero = () => {
               />
             </span>
           </h2>
-          <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 mb-10 max-w-xl">
+          <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 mb-10 max-w-xl2">
             I’m an IT undergraduate passionate about building web and software solutions that are functional, user-friendly, and innovative.
           </p>
           
