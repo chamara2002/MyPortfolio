@@ -36,7 +36,7 @@ const Hero = () => {
             </span>
           </h2>
           <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 mb-10 max-w-xl">
-            I am an undergraduate IT student with hands-on experience as an IT trainee. I am a quick learner with a strong passion for software development and emerging technologies.
+            I’m an IT undergraduate passionate about building web and software solutions that are functional, user-friendly, and innovative.
           </p>
           
           {/* Photo shown only on mobile, below paragraph */}
