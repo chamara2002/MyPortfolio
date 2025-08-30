@@ -18,13 +18,13 @@ const About = () => {
           {/* Info Section Only */}
           <div className="w-full mt-0">
             <p className="text-gray-700 dark:text-gray-300 mb-6 leading-relaxed text-base">
-              Hello! I’m Chamara Perera (Lathpandurage Chamara Charika Perera), an undergraduate pursuing a B.Sc. (Hons) in Information Technology at the Sri Lanka Institute of Information Technology (SLIIT). I have hands-on experience as an IT trainee at Airport and Aviation Services (Sri Lanka) (Private) Limited, where I worked on software development, system support, server management, and application deployment.</p>
+              I’m Chamara Perera (Lathpandurage Chamara Charika Perera) – Software & Web Developer, and IT Undergraduate, currently pursuing a B.Sc. (Hons) in Information Technology at the Sri Lanka Institute of Information Technology (SLIIT). My journey in IT has given me both academic knowledge and practical industry experience, shaping me into a passionate developer who enjoys solving problems through technology.</p>
             <p className="text-gray-700 dark:text-gray-300 mb-6 leading-relaxed text-base">
-              I’m passionate about software engineering and emerging technologies, with strong skills in Python, C, C++, C#, .NET, JavaScript, React.js, Node.js, Express.js, MongoDB, and MySQL, along with experience using GitHub, Windows Server, Red Hat Linux, Docker, and WordPress. I also enjoy working on UI/UX design with Figma, ensuring that my solutions are both functional and user-friendly.</p>
+              During my internship at Airport and Aviation Services (Sri Lanka) (Private) Limited, I gained hands-on experience in software and web development, system support, server management, and application deployment.</p>
             <p className="text-gray-700 dark:text-gray-300 mb-6 leading-relaxed text-base">
-              Beyond technical expertise, I bring creativity, leadership, problem-solving, and teamwork abilities to everything I do. As a quick learner, I am always eager to explore new technologies, take on challenges, and grow as a professional.</p>
+              I am a quick learner with strong creativity, problem-solving, teamwork, and leadership abilities, and I am passionate about advancing my career in software and web development, exploring emerging technologies such as cloud computing and AI/ML.</p>
             <p className="text-gray-700 dark:text-gray-300 mb-6 leading-relaxed text-base">
-              Currently, I am focused on enhancing my knowledge in cloud computing, AI/ML, and full-stack development, while working towards becoming a skilled and reliable software engineer who can contribute to impactful IT solutions.</p>
+              My long-term goal is to grow as a skilled software engineer who can contribute to impactful IT solutions and innovative projects.</p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-gray-700 dark:text-gray-300 text-sm">
             </div>
           </div>
