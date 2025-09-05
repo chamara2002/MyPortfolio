@@ -8,12 +8,12 @@ const educationData = [
     period: "2023 – 2026 (Expected)",
   },
   {
-    title: "GCE A/L - Technology Stream",
+    title: "General Certificate of Education (GCE) Advanced Level (A/L) - Technology Stream",
     place: "",
-    period: "2021/2022",
+    period: "2021(2022)",
   },
   {
-    title: "GCE O/L",
+    title: "General Certificate of Education (GCE) Ordinary Level (O/L)",
     place: "",
     period: "2018",
   },
