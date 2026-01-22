@@ -1,10 +1,12 @@
-
 import { StrictMode, useEffect } from 'react';
 import { createRoot } from 'react-dom/client';
+import { BrowserRouter, Routes, Route, useLocation, useNavigate } from 'react-router-dom';
+import { AnimatePresence, motion } from 'framer-motion';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import './index.css';
 import App from './App.jsx';
-import ProjectsPage from './components/ProjectsPage';
-import { BrowserRouter, Routes, Route, useLocation, useNavigate } from 'react-router-dom';
+
 // Redirects to home (/) after refresh if not already on home
 function RedirectToHome() {
   const location = useLocation();
@@ -14,12 +16,10 @@ function RedirectToHome() {
     if (location.pathname !== '/') {
       navigate('/', { replace: true });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []); // empty deps: only on mount
   return null;
 }
-import { AnimatePresence, motion } from 'framer-motion';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
 
 
 function ScrollToHash() {
@@ -57,20 +57,6 @@ function AnimatedRoutes() {
               style={{ minHeight: '100vh' }}
             >
               <App />
-            </motion.div>
-          }
-        />
-        <Route
-          path="/projects"
-          element={
-            <motion.div
-              initial={{ opacity: 0, x: 60 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -60 }}
-              transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
-              style={{ minHeight: '100vh' }}
-            >
-              <ProjectsPage />
             </motion.div>
           }
         />

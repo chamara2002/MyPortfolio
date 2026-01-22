@@ -1,5 +1,5 @@
 import React from "react";
-import { FaGithub, FaLinkedin, FaEnvelope, FaFacebook, FaTwitter } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaEnvelope, FaFacebook, FaXTwitter } from "react-icons/fa6";
 import { motion } from "framer-motion";
 
 
@@ -43,11 +43,11 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-2">
                 <FaFacebook className="text-xl" />
-                <a href="https://web.facebook.com/chamara.perera.228517/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Facebook</a>
+                <a href="https://web.facebook.com/chamara.perera.2002/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Facebook</a>
               </li>
               <li className="flex items-center gap-2">
-                <FaTwitter className="text-xl" />
-                <a href="https://x.com/chamara__2002" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Twitter</a>
+                <FaXTwitter className="text-xl" />
+                <a href="https://x.com/chamara__2002" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Twitter/X</a>
               </li>
               <li className="flex items-center gap-2">
                 <FaEnvelope className="text-xl" />

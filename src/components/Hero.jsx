@@ -1,5 +1,3 @@
-
-
 import React from "react";
 import profileImg from "../assets/profile.JPG";
 import { Typewriter } from 'react-simple-typewriter';
@@ -25,7 +23,7 @@ const Hero = () => {
           <h2 className="text-3xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4 leading-tight flex flex-wrap">
             <span>
               <Typewriter
-                words={["Software Developer", "IT Undergraduate", "Web Developer"]}
+                words={["Software Developer", "IT Undergraduate", "Software Engineer Intern", "Tech Enthusiast"]}
                 loop={0}
                 cursor
                 cursorStyle="|"

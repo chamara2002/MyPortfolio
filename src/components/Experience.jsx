@@ -15,8 +15,6 @@ const experienceData = [
   }
 ];
 
-
-
 const Experience = () => {
   const controls = useAnimation();
 
