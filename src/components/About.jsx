@@ -18,7 +18,7 @@ const About = () => {
           {/* Info Section Only */}
           <div className="w-full mt-0 text-center">
             <p className="text-gray-700 dark:text-gray-300 mb-6 leading-relaxed text-lg">
-              I’m Chamara Perera (Lathpandurage Chamara Charika Perera) – Software & Web Developer, and IT Undergraduate, currently pursuing a BSc (Hons) in Information Technology Specializing in Information Technology at the Sri Lanka Institute of Information Technology (SLIIT). My journey in IT has given me both academic knowledge and practical industry experience, shaping me into a passionate developer who enjoys solving problems through technology.</p>
+              I’m Chamara Perera (Lathpandurage Chamara Charika Perera) – Currently pursuing a BSc (Hons) in Information Technology Specializing in Information Technology at the Sri Lanka Institute of Information Technology (SLIIT). My journey in IT has given me both academic knowledge and practical industry experience, shaping me into a passionate developer who enjoys solving problems through technology.</p>
             <p className="text-gray-700 dark:text-gray-300 mb-6 leading-relaxed text-lg">
               During my internship at Airport and Aviation Services (Sri Lanka) (Private) Limited, I gained hands-on experience in software and web development, system support, server management, and application deployment.</p>
             <p className="text-gray-700 dark:text-gray-300 mb-6 leading-relaxed text-lg">
