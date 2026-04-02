@@ -82,7 +82,7 @@ export const projects = [
     description:
       "Developed a mobile task management app using Kotlin and XML in Android Studio, enabling users to add, edit, and delete tasks. Implemented persistent storage with SharedPreferences to retain data across sessions, ensuring reliable daily task management.",
     tech: ["Kotlin", "XML", "Android Studio", "SharedPreferences"],
-    association: "Associated withSLIIT (Individual Project)",
+    association: "Associated with SLIIT (Individual Project)",
     github: "https://github.com/chamara2002/TaskManager",
     demo: "",
     screenshot: ""

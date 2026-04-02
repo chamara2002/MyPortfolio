@@ -12,18 +12,17 @@ export const skills = [
   { name: "Tailwind CSS", icon: "SiTailwindcss", description: "Utility-first CSS framework", category: "coding" },
   { name: "React.js", icon: "SiReact", description: "Building interactive UIs with React.js", category: "coding" },
   { name: "Node.js", icon: "SiNodedotjs", description: "Backend development with Node.js", category: "coding" },
-  { name: "Express.js", icon: "SiExpress", description: "RESTful APIs with Express.js", category: "coding" },
 
   // Databases
   { name: "MySQL", icon: "SiMysql", description: "Relational database management", category: "professional" },
   { name: "MariaDB", icon: "SiMariadb", description: "Open-source relational database", category: "professional" },
+  { name: "PostgreSQL", icon: "SiPostgresql", description: "Advanced relational database management", category: "professional" },
   { name: "MongoDB", icon: "SiMongodb", description: "NoSQL database management", category: "professional" },
 
   // Tools & Platforms
   { name: "Git", icon: "SiGit", description: "Version control with Git", category: "professional" },
   { name: "GitHub", icon: "SiGithub", description: "Code hosting and collaboration", category: "professional" },
   { name: "Windows Server", icon: "SiWindows", description: "Server administration on Windows", category: "professional" },
-  { name: "Red Hat Linux", icon: "SiRedhat", description: "Linux server management", category: "professional" },
   { name: "WampServer", icon: "SiWampserver", description: "Windows web development environment", category: "professional" },
   { name: "PM2", icon: "SiPm2", description: "Node.js process management", category: "professional" },
   { name: "WordPress", icon: "SiWordpress", description: "Content management system", category: "professional" },
