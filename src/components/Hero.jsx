@@ -1,6 +1,7 @@
 import React from "react";
 import profileImg from "../assets/profile.JPG";
 import { Typewriter } from 'react-simple-typewriter';
+import Antigravity from './Antigravity';
 
 
 const Hero = () => {
@@ -10,10 +11,25 @@ const Hero = () => {
       className="min-h-screen flex items-center justify-center bg-gradient-to-br from-white via-blue-50 to-white dark:from-gray-900 dark:via-gray-950 dark:to-gray-900 transition-colors duration-500 relative overflow-hidden"
       data-aos="fade-up"
     >
+      {/* Background Animation */}
+      <div className="absolute inset-0 w-full h-full opacity-40 dark:opacity-20">
+        <Antigravity 
+          count={400}
+          magnetRadius={15}
+          ringRadius={12}
+          waveSpeed={0.3}
+          waveAmplitude={0.8}
+          particleSize={1.5}
+          color="#2563EB"
+          autoAnimate={true}
+          pulseSpeed={2}
+        />
+      </div>
+
       {/* Subtle geometric background shapes */}
   {/* Remove background squares from page bg */}
       
-      <div className="flex flex-col md:flex-row items-center justify-between gap-8 w-full max-w-7xl px-3 py-20 z-15 animate-fade-in">
+      <div className="flex flex-col md:flex-row items-center justify-between gap-8 w-full max-w-7xl px-3 py-20 z-20 animate-fade-in relative">
         {/* Text Side */}
         <div className="flex-1 flex flex-col items-start text-left">
           <span className="text-lg text-gray-600 dark:text-gray-300 mb-2">Hello, I'm</span>
@@ -68,7 +84,7 @@ const Hero = () => {
             
             {/* Mobile Scroll Down Indicator */}
             <div 
-              className="md:hidden flex flex-col items-center w-full mt-14 mb-4 cursor-pointer" 
+              className="md:hidden flex flex-col items-center w-full mt-14 mb-4 cursor-pointer z-30 relative" 
               onClick={() => {
                 const el = document.getElementById('projects');
                 if (el) {
@@ -103,7 +119,7 @@ const Hero = () => {
       </div>
       {/* Scroll Down Indicator */}
       <button
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 hidden md:flex flex-col items-center z-20 focus:outline-none group"
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 hidden md:flex flex-col items-center z-30 focus:outline-none group"
         onClick={() => {
           const el = document.getElementById('projects');
           if (el) {
