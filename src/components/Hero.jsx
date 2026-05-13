@@ -11,8 +11,8 @@ const Hero = () => {
       className="min-h-screen flex items-center justify-center bg-gradient-to-br from-white via-blue-50 to-white dark:from-gray-900 dark:via-gray-950 dark:to-gray-900 transition-colors duration-500 relative overflow-hidden"
       data-aos="fade-up"
     >
-      {/* Background Animation */}
-      <div className="absolute inset-0 w-full h-full opacity-40 dark:opacity-20">
+      {/* Background Animation - Desktop only */}
+      <div className="hidden md:block absolute inset-0 w-full h-full opacity-40">
         <Antigravity 
           count={400}
           magnetRadius={15}
