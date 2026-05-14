@@ -28,6 +28,14 @@ const AntigravityInner = ({
   const lastMouseMoveTime = useRef(0);
   const virtualMouse = useRef({ x: 0, y: 0 });
 
+  const colors = useMemo(() => {
+    return Array.isArray(color) ? color : [color];
+  }, [color]);
+
+  const colorObjects = useMemo(() => {
+    return colors.map(c => new THREE.Color(c));
+  }, [colors]);
+
   const particles = useMemo(() => {
     const temp = [];
     const width = viewport.width || 100;
@@ -46,6 +54,7 @@ const AntigravityInner = ({
       const z = (Math.random() - 0.5) * 20;
 
       const randomRadiusOffset = (Math.random() - 0.5) * 2;
+      const colorIndex = Math.floor(Math.random() * colorObjects.length);
 
       temp.push({
         t,
@@ -63,11 +72,12 @@ const AntigravityInner = ({
         vx: 0,
         vy: 0,
         vz: 0,
-        randomRadiusOffset
+        randomRadiusOffset,
+        colorIndex
       });
     }
     return temp;
-  }, [count, viewport.width, viewport.height]);
+  }, [count, viewport.width, viewport.height, colorObjects]);
 
   useFrame(state => {
     const mesh = meshRef.current;
@@ -101,7 +111,7 @@ const AntigravityInner = ({
     const globalRotation = state.clock.getElapsedTime() * rotationSpeed;
 
     particles.forEach((particle, i) => {
-      let { t, speed, mx, my, mz, cz, randomRadiusOffset } = particle;
+      let { t, speed, mx, my, mz, cz, randomRadiusOffset, colorIndex } = particle;
 
       t = particle.t += speed / 2;
 
@@ -152,9 +162,11 @@ const AntigravityInner = ({
       dummy.updateMatrix();
 
       mesh.setMatrixAt(i, dummy.matrix);
+      mesh.setColorAt(i, colorObjects[colorIndex]);
     });
 
     mesh.instanceMatrix.needsUpdate = true;
+    if (mesh.instanceColor) mesh.instanceColor.needsUpdate = true;
   });
 
   return (
@@ -163,7 +175,7 @@ const AntigravityInner = ({
       {particleShape === 'sphere' && <sphereGeometry args={[0.2, 16, 16]} />}
       {particleShape === 'box' && <boxGeometry args={[0.3, 0.3, 0.3]} />}
       {particleShape === 'tetrahedron' && <tetrahedronGeometry args={[0.3]} />}
-      <meshBasicMaterial color={color} />
+      <meshBasicMaterial toneMapped={false} />
     </instancedMesh>
   );
 };

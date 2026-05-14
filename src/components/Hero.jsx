@@ -1,10 +1,28 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import profileImg from "../assets/profile.JPG";
 import { Typewriter } from 'react-simple-typewriter';
 import Antigravity from './Antigravity';
 
 
 const Hero = () => {
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    // Check if dark mode is enabled
+    const checkDarkMode = () => {
+      setIsDark(document.documentElement.classList.contains('dark'));
+    };
+
+    checkDarkMode();
+
+    // Watch for theme changes
+    const observer = new MutationObserver(checkDarkMode);
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+
+    return () => observer.disconnect();
+  }, []);
+
+  const particleColors = isDark ? ["#FFFFFF", "#2563EB"] : ["#000000", "#2563EB"];
   return (
     <section
       id="home"
@@ -14,15 +32,16 @@ const Hero = () => {
       {/* Background Animation - Desktop only */}
       <div className="hidden md:block absolute inset-0 w-full h-full opacity-40">
         <Antigravity 
-          count={400}
+          count={800}
           magnetRadius={15}
           ringRadius={12}
-          waveSpeed={0.3}
+          waveSpeed={0.15}
           waveAmplitude={0.8}
-          particleSize={1.5}
-          color="#2563EB"
+          particleSize={0.8}
+          color={particleColors}
           autoAnimate={true}
           pulseSpeed={2}
+          fieldStrength={8}
         />
       </div>
 
