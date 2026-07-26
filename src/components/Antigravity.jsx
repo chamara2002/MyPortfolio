@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unknown-property */
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
-import { useMemo, useRef } from 'react';
+import { useMemo, useRef, useEffect } from 'react';
 import * as THREE from 'three';
 
 const AntigravityInner = ({
@@ -21,12 +21,37 @@ const AntigravityInner = ({
   fieldStrength = 10
 }) => {
   const meshRef = useRef(null);
-  const { viewport } = useThree();
+  const { viewport, gl } = useThree();
   const dummy = useMemo(() => new THREE.Object3D(), []);
 
   const lastMousePos = useRef({ x: 0, y: 0 });
   const lastMouseMoveTime = useRef(0);
   const virtualMouse = useRef({ x: 0, y: 0 });
+  // Track global mouse in NDC [-1, 1] by listening to window events
+  const globalPointer = useRef({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const canvas = gl.domElement;
+    const handleMouseMove = (e) => {
+      const rect = canvas.getBoundingClientRect();
+      // Convert window mouse position to NDC relative to the canvas bounds
+      const ndcX = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+      const ndcY = -((e.clientY - rect.top) / rect.height) * 2 + 1;
+      globalPointer.current.x = ndcX;
+      globalPointer.current.y = ndcY;
+
+      const dist = Math.sqrt(
+        Math.pow(ndcX - lastMousePos.current.x, 2) +
+        Math.pow(ndcY - lastMousePos.current.y, 2)
+      );
+      if (dist > 0.001) {
+        lastMouseMoveTime.current = Date.now();
+        lastMousePos.current = { x: ndcX, y: ndcY };
+      }
+    };
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, [gl]);
 
   const colors = useMemo(() => {
     return Array.isArray(color) ? color : [color];
@@ -83,14 +108,10 @@ const AntigravityInner = ({
     const mesh = meshRef.current;
     if (!mesh) return;
 
-    const { viewport: v, pointer: m } = state;
-
-    const mouseDist = Math.sqrt(Math.pow(m.x - lastMousePos.current.x, 2) + Math.pow(m.y - lastMousePos.current.y, 2));
-
-    if (mouseDist > 0.001) {
-      lastMouseMoveTime.current = Date.now();
-      lastMousePos.current = { x: m.x, y: m.y };
-    }
+    const { viewport: v } = state;
+    // Use globalPointer which captures window-level mouse events
+    // so the animation responds even when cursor is over overlapping UI elements
+    const m = globalPointer.current;
 
     let destX = (m.x * v.width) / 2;
     let destY = (m.y * v.height) / 2;

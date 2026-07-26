@@ -31,7 +31,7 @@ const Hero = () => {
     >
       {/* Background Animation - Desktop only */}
       <div className="hidden md:block absolute inset-0 w-full h-full opacity-40">
-        <Antigravity 
+        <Antigravity
           count={800}
           magnetRadius={15}
           ringRadius={12}
@@ -46,8 +46,8 @@ const Hero = () => {
       </div>
 
       {/* Subtle geometric background shapes */}
-  {/* Remove background squares from page bg */}
-      
+      {/* Remove background squares from page bg */}
+
       <div className="flex flex-col md:flex-row items-center justify-between gap-8 w-full max-w-7xl px-3 py-20 z-20 animate-fade-in relative">
         {/* Text Side */}
         <div className="flex-1 flex flex-col items-start text-left">
@@ -71,7 +71,7 @@ const Hero = () => {
           <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 mb-10 max-w-xl2">
             I’m an IT undergraduate passionate about building web and software solutions that are functional, user-friendly, and innovative.
           </p>
-          
+
           {/* Photo shown only on mobile, below paragraph */}
           <div className="flex-1 flex items-center justify-center relative w-full mb-8 md:hidden">
             <img
@@ -79,14 +79,14 @@ const Hero = () => {
               alt="Chamara Profile"
               className="w-64 h-64 object-cover rounded-2xl shadow-2xl relative z-10"
               loading="lazy"
-              style={{objectPosition:'top'}}
+              style={{ objectPosition: 'top' }}
             />
             {/* Geometric squares near the photo, adapt to theme */}
-            <div className="absolute -top-6 -right-6 w-16 h-16 bg-blue-500 dark:bg-blue-900 opacity-30 dark:opacity-15 rounded-2xl z-0" style={{filter:'blur(0.5px)'}}></div>
-            <div className="absolute bottom-3 -left-6 w-12 h-12 bg-blue-400 dark:bg-blue-700 opacity-30 dark:opacity-15 rounded-xl z-0" style={{filter:'blur(0.5px)'}}></div>
-            <div className="absolute top-1/2 right-0 w-10 h-10 bg-blue-300 dark:bg-blue-400 opacity-40 dark:opacity-15 rounded-lg z-0" style={{filter:'blur(0.3px)'}}></div>
+            <div className="absolute -top-6 -right-6 w-16 h-16 bg-blue-500 dark:bg-blue-900 opacity-30 dark:opacity-15 rounded-2xl z-0" style={{ filter: 'blur(0.5px)' }}></div>
+            <div className="absolute bottom-3 -left-6 w-12 h-12 bg-blue-400 dark:bg-blue-700 opacity-30 dark:opacity-15 rounded-xl z-0" style={{ filter: 'blur(0.5px)' }}></div>
+            <div className="absolute top-1/2 right-0 w-10 h-10 bg-blue-300 dark:bg-blue-400 opacity-40 dark:opacity-15 rounded-lg z-0" style={{ filter: 'blur(0.3px)' }}></div>
           </div>
-          
+
           <div className="flex flex-col md:flex-row gap-4 w-full md:w-auto relative">
             <a
               href="#projects"
@@ -100,10 +100,10 @@ const Hero = () => {
             >
               Contact Me
             </a>
-            
+
             {/* Mobile Scroll Down Indicator */}
-            <div 
-              className="md:hidden flex flex-col items-center w-full mt-14 mb-4 cursor-pointer z-30 relative" 
+            <div
+              className="md:hidden flex flex-col items-center w-full mt-14 mb-4 cursor-pointer z-30 relative"
               onClick={() => {
                 const el = document.getElementById('projects');
                 if (el) {
@@ -128,12 +128,12 @@ const Hero = () => {
             alt="Chamara Profile"
             className="w-72 h-72 md:w-[26rem] md:h-[26rem] object-cover rounded-2xl shadow-2xl relative z-10"
             loading="lazy"
-            style={{objectPosition:'top'}}
+            style={{ objectPosition: 'top' }}
           />
           {/* Geometric squares near the photo, adapt to theme */}
-          <div className="absolute -top-8 -right-8 w-20 h-20 bg-blue-500 dark:bg-blue-900 opacity-30 dark:opacity-15 rounded-2xl z-0" style={{filter:'blur(0.5px)'}}></div>
-          <div className="absolute bottom-4 -left-8 w-16 h-16 bg-blue-400 dark:bg-blue-700 opacity-30 dark:opacity-15 rounded-xl z-0" style={{filter:'blur(0.5px)'}}></div>
-          <div className="absolute top-1/2 right-0 w-12 h-12 bg-blue-300 dark:bg-blue-400 opacity-40 dark:opacity-15 rounded-lg z-0" style={{filter:'blur(0.3px)'}}></div>
+          <div className="absolute -top-8 -right-8 w-20 h-20 bg-blue-500 dark:bg-blue-900 opacity-30 dark:opacity-15 rounded-2xl z-0" style={{ filter: 'blur(0.5px)' }}></div>
+          <div className="absolute bottom-4 -left-8 w-16 h-16 bg-blue-400 dark:bg-blue-700 opacity-30 dark:opacity-15 rounded-xl z-0" style={{ filter: 'blur(0.5px)' }}></div>
+          <div className="absolute top-1/2 right-0 w-12 h-12 bg-blue-300 dark:bg-blue-400 opacity-40 dark:opacity-15 rounded-lg z-0" style={{ filter: 'blur(0.3px)' }}></div>
         </div>
       </div>
       {/* Scroll Down Indicator */}

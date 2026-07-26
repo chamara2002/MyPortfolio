@@ -3,76 +3,98 @@ import * as SiIcons from "react-icons/si";
 import { skills } from "../data/skills";
 import { motion, AnimatePresence } from "framer-motion";
 
-const Skills = () => {
-  // Define skill categories
-  const [activeTab, setActiveTab] = useState("Coding Skills");
-  const coreSkills = ["React", "Node.js"];
-  // You may want to update your skills.js to include a 'category' property for each skill
-  const categorizedSkills = {
-    "Coding Skills": skills.filter(skill => skill.category === "coding"),
-    "Professional Skills": skills.filter(skill => skill.category === "professional"),
-    "General Skills": skills.filter(skill => skill.category === "general"),
-  };
+const TABS = [
+  { label: "Programming Languages & Frameworks", key: "languages" },
+  { label: "Databases",                          key: "databases" },
+  { label: "DevOps & Tools",                     key: "devops"    },
+  { label: "AI & Computer Vision",               key: "ai"        },
+  { label: "UI/UX Design",                       key: "uiux"      },
+  { label: "Other Technologies",                 key: "other"     },
+  { label: "Soft Skills",                        key: "soft"      },
+];
 
-  const tabList = ["Coding Skills", "Professional Skills", "General Skills"];
+const Skills = () => {
+  const [activeTab, setActiveTab] = useState(TABS[0].key);
+
+  const visibleSkills = skills.filter((s) => s.category === activeTab);
 
   return (
-    <section id="skills" className="py-20 bg-gray-50 dark:bg-gray-950 transition-colors" data-aos="fade-up">
-      <div className="max-w-5xl mx-auto px-2">
-  <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-10 text-center">Skills & Expertise</h2>
-  {/* Tabs */}
-  <div className="flex justify-center space-x-2 mb-8">
-          {tabList.map(tab => (
+    <section
+      id="skills"
+      className="py-20 bg-gray-50 dark:bg-gray-950 transition-colors"
+      data-aos="fade-up"
+    >
+      <div className="max-w-5xl mx-auto px-4">
+        <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-10 text-center">
+          Skills &amp; Expertise
+        </h2>
+
+        {/* Tab buttons */}
+        <div className="flex flex-wrap justify-center gap-2 mb-10">
+          {TABS.map((tab) => (
             <button
-              key={tab}
-              onClick={() => setActiveTab(tab)}
-              className={`px-6 py-2 rounded-full font-medium focus:outline-none transition-all relative border
-                ${activeTab === tab
-                  ? 'bg-blue-700 text-white dark:bg-blue-500 dark:text-white border-blue-700 dark:border-blue-400 shadow'
-                  : 'bg-gray-200 text-gray-900 border-gray-300 hover:bg-gray-300 dark:bg-gray-800 dark:text-gray-200 dark:border-gray-700 dark:hover:bg-gray-700'}
-              `}
-              style={{
-                boxShadow: activeTab === tab ? '0 0 0 2px #38bdf8' : undefined
-              }}
+              key={tab.key}
+              onClick={() => setActiveTab(tab.key)}
+              className={`px-4 py-2 rounded-full font-medium text-sm focus:outline-none transition-all border
+                ${activeTab === tab.key
+                  ? "bg-blue-700 text-white dark:bg-blue-500 border-blue-700 dark:border-blue-400 shadow"
+                  : "bg-gray-200 text-gray-800 border-gray-300 hover:bg-gray-300 dark:bg-gray-800 dark:text-gray-200 dark:border-gray-700 dark:hover:bg-gray-700"
+                }`}
+              style={{ boxShadow: activeTab === tab.key ? "0 0 0 2px #38bdf8" : undefined }}
             >
-              {tab}
+              {tab.label}
             </button>
           ))}
         </div>
-        {/* Skills Grid with tab switch animation */}
+
+        {/* Skill cards */}
         <AnimatePresence mode="wait">
           <motion.div
             key={activeTab}
-            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 justify-items-center"
-            initial={{ opacity: 0, y: 30 }}
+            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5"
+            initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -30 }}
-            transition={{ duration: 0.4, ease: "easeInOut" }}
+            exit={{ opacity: 0, y: -24 }}
+            transition={{ duration: 0.35, ease: "easeInOut" }}
           >
-            {categorizedSkills[activeTab].map((skill, idx) => {
+            {visibleSkills.map((skill, idx) => {
               const Icon = SiIcons[skill.icon];
               return (
                 <motion.div
-                  key={idx}
-                  className={"flex flex-col items-start bg-white dark:bg-gray-800 rounded-lg shadow p-5 hover:shadow-lg transition-shadow group"}
-                  style={{ minHeight: '120px', minWidth: '260px', width: '100%', border: 'none', boxShadow: 'none' }}
-                  initial={{ opacity: 0, scale: 0.7 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ type: 'spring', stiffness: 400, damping: 18 }}
-                  whileHover={{ scale: 1.08 }}
-                  viewport={{ once: true }}
+                  key={`${activeTab}-${idx}`}
+                  className="flex items-center gap-4 bg-white dark:bg-gray-800 rounded-xl p-4 shadow-sm hover:shadow-md transition-shadow group cursor-default"
+                  initial={{ opacity: 0, scale: 0.88 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{
+                    type: "spring",
+                    stiffness: 380,
+                    damping: 20,
+                    delay: idx * 0.05,
+                  }}
+                  whileHover={{ scale: 1.05 }}
                 >
-                  <div className="flex items-center mb-2">
-                    {Icon && <motion.div
-                      initial={{ scale: 0 }}
-                      animate={{ scale: 1 }}
-                      transition={{ type: 'spring', stiffness: 500, damping: 20, delay: 0.1 * idx }}
-                    >
-                      <Icon className="w-6 h-6 text-blue-500 mr-2 group-hover:scale-110 transition-transform" />
-                    </motion.div>}
-                    <span className="text-gray-900 dark:text-white font-semibold text-base">{skill.name}</span>
+                  {/* Icon */}
+                  <div className="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-lg bg-blue-50 dark:bg-blue-900/40 group-hover:bg-blue-100 dark:group-hover:bg-blue-800/60 transition-colors">
+                    {Icon ? (
+                      <Icon className="w-5 h-5 text-blue-500 dark:text-blue-400" />
+                    ) : (
+                      <span className="text-xs font-bold text-blue-500 dark:text-blue-400 leading-none text-center">
+                        {skill.name.slice(0, 2).toUpperCase()}
+                      </span>
+                    )}
                   </div>
-                  {skill.description && <span className="text-gray-600 dark:text-gray-300 text-sm">{skill.description}</span>}
+
+                  {/* Text */}
+                  <div className="min-w-0">
+                    <p className="text-sm font-semibold text-gray-900 dark:text-white truncate">
+                      {skill.name}
+                    </p>
+                    {skill.description && (
+                      <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5 line-clamp-2">
+                        {skill.description}
+                      </p>
+                    )}
+                  </div>
                 </motion.div>
               );
             })}

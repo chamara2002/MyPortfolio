@@ -1,6 +1,6 @@
 export const projects = [
   {
-    name: "PolicyHub Policy & Compliance Management Web Application",
+    name: "PolicyHub - Policy & Compliance Management Web Application",
     duration: "Sep 2025 - Oct 2025",
     description: 
       "Developed a secure, role-based policy management system using React.js (Vite), Node.js, and MongoDB. The application enables policy creation, versioning, assignment, acknowledgments, compliance tracking, reminders, and audit logging. Applied secure coding practices to ensure data integrity, access control, and system reliability.",
@@ -8,21 +8,34 @@ export const projects = [
     association: "Freelance Project",
     github: "https://github.com/chamara2002/PolicyHub",
     demo: "",
-    screenshot: ""
+    screenshots: []
   },
   {
-    name: "LogiManage_KDU Inventory Management Web Application",
+    name: "LogiManage - Inventory Management Web Application",
     duration: "Aug 2025 - Sep 2025",
     description:
       "Developed an inventory management system using React.js (Vite), Node.js, and MongoDB, supporting the complete inventory workflow including order registration, goods receiving, quality inspection, and final stock handling. Implemented role-based access, real-time status tracking, notifications, and audit logs to improve operational efficiency and traceability.",
     tech: ["React.js", "Vite", "Node.js", "MongoDB", "CSS3"],
     association: "Freelance Project",
-    github: "https://github.com/chamara2002/LogiManage_KDU",
+    github: "https://github.com/chamara2002/LogiManage",
     demo: "",
-    screenshot: ""
+    screenshots: ["/screenshots/LogiManage/logistic_Dashboard.webp",
+      "/screenshots/LogiManage/New_order.webp",
+      "/screenshots/LogiManage/Manage_Orders.webp",
+      "/screenshots/LogiManage/Order_History.webp",
+      "/screenshots/LogiManage/Order_Transfer.webp",
+      "/screenshots/LogiManage/GateCheck.webp",
+      "/screenshots/LogiManage/Quality_Dashboard.webp",
+      "/screenshots/LogiManage/Quality_inspection.webp",
+      "/screenshots/LogiManage/Inspection_History.webp",
+      "/screenshots/LogiManage/Security_Dashboard.webp",
+      "/screenshots/LogiManage/Security_Check.webp",
+      "/screenshots/LogiManage/Notifications.webp",
+      "/screenshots/LogiManage/Report_export.webp",
+      "/screenshots/LogiManage/User_profile.webp",]
   },
   {
-    name: "SpaceChecker Parking Space Detection System",
+    name: "SpaceChecker - Parking Space Detection System",
     duration: "Apr 2025 - May 2025",
     description:
       "Developed a Python desktop application using OpenCV, YOLOv8, and Tkinter for real-time parking space detection, featuring an intuitive slot management interface and packaged as a standalone executable with NSIS.",
@@ -30,18 +43,20 @@ export const projects = [
     association: "Associated with AASL (Individual Project)",
     github: "",
     demo: "",
-    screenshot: ""
+    screenshots: [
+      "/screenshots/SpaceChecker/Software.png",
+    ]
   },
   {
-    name: "StockSpot Inventory Management System",
+    name: "StockSpot - Inventory Management System",
     duration: "Jan 2025 - Mar 2025",
     description:
       "Developed a web application to manage office inventory using Node.js, React.js, Express.js, and MariaDB. The system tracks items, manages warranties, and generates reports. Deployed on Windows Server and compatible with Red Hat Linux, using PM2 for process management and enabling multi-user access.",
     tech: ["Node.js", "React.js", "Express.js", "CSS3", "MariaDB", "PM2", "Windows Server", "Red Hat Linux"],
-    association: "Associated withAASL (Individual Project)",
+    association: "Associated with AASL (Individual Project)",
     github: "",
     demo: "",
-    screenshot: ""
+    screenshots: []
   },
   {
     name: "WordPress Website Development",
@@ -52,21 +67,21 @@ export const projects = [
     association: "Associated with AASL (Individual Project)",
     github: "",
     demo: "",
-    screenshot: ""
+    screenshots: []
   },
   {
-    name: "Object Detection and Tracking System",
+    name: "cctvDetector - Object Detection and Tracking System",
     duration: "SDec 2024 - Jan 2025",
     description:
       "Developed a Python-based real-time object detection and tracking system using YOLOv8, OpenCV, and Tkinter to monitor CCTV feeds and send notifications when a tracked item goes missing, enhancing security.",
     tech: ["Python", "YOLOv8", "OpenCV", "Tkinter", "RTSP"],
     association: "Associated with AASL (Individual Project)",
-    github: "",
+    github: "https://github.com/chamara2002/cctvDetector",
     demo: "",
-    screenshot: ""
+    screenshots: []
   },
   {
-    name: "LakeView Gaming Zone Web Application",
+    name: "LakeView - Gaming Zone Web Application",
     duration: "Sep 2025 - Oct 2025",
     description:
       "Collaboratively developed a game zone management platform using React.js (Vite), Node.js, and MongoDB, featuring management of games, food services, staff, bookings, events, and resources. Demonstrated teamwork and technical skills to streamline operations and enhance user experience.",
@@ -74,10 +89,10 @@ export const projects = [
     association: "Associated with SLIIT (Group Project)",
     github: "https://github.com/chamara2002/LakeView",
     demo: "",
-    screenshot: ""
+    screenshots: []
   },
   {
-    name: "TaskManager Task Management Mobile Application",
+    name: "TaskManager - Task Management Mobile Application",
     duration: "Sep 2025 - Oct 2025",
     description:
       "Developed a mobile task management app using Kotlin and XML in Android Studio, enabling users to add, edit, and delete tasks. Implemented persistent storage with SharedPreferences to retain data across sessions, ensuring reliable daily task management.",
@@ -85,10 +100,10 @@ export const projects = [
     association: "Associated with SLIIT (Individual Project)",
     github: "https://github.com/chamara2002/TaskManager",
     demo: "",
-    screenshot: ""
+    screenshots: []
   },
   {
-    name: "FreshCraze Online Grocery Management System",
+    name: "FreshCraze - Online Grocery Management System",
     duration: "Feb 2024 - Apr 2024",
     description:
       "Collaboratively developed an online grocery management system using JavaScript, and Apache Tomcat to streamline product management and online shopping workflows. The platform offers a user-friendly interface and an efficient backend to enhance the overall shopping experience, demonstrating strong teamwork, system design, and full-stack development skills.",
@@ -96,10 +111,10 @@ export const projects = [
     association: "Associated with SLIIT (Group Project)",
     github: "https://github.com/chamara2002/FreshCraze",
     demo: "",
-    screenshot: ""
+    screenshots: []
   },
   {
-    name: "LIFEFLOW Blood Donation Management System",
+    name: "LIFEFLOW - Blood Donation Management System",
     duration: "Aug 2023 - Oct 2023",
     description:
       "Collaboratively developed a blood donation management platform using PHP, HTML, and MySQL to streamline donor-recipient connections and improve the efficiency of blood donation processes. The system enhances accessibility, ensures smooth coordination, and demonstrates teamwork and a commitment to making a positive community impact.",
@@ -107,6 +122,6 @@ export const projects = [
     association: "Associated with SLIIT (Group Project)",
     github: "https://github.com/chamara2002/LIFEFLOW",
     demo: "",
-    screenshot: ""
+    screenshots: []
   },
 ];

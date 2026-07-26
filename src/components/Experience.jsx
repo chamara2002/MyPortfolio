@@ -8,9 +8,10 @@ const experienceData = [
     company: "Airport and Aviation Services (Sri Lanka) (Private) Limited",
     period: "Dec 2024 – May 2025",
     details: [
-      "Gained hands-on experience in software development, server management, and system integration within the IT Division.",
-      "Collaborated with senior IT staff on system maintenance and troubleshooting, ensuring smooth daily operations.",
-      "Assisted in deploying, testing, and maintaining applications and network services."
+      "Developed internal software solutions using React.js, Node.js, Express.js, and MariaDB.",
+      "Designed and deployed applications on Windows Server while ensuring compatibility with Red Hat Linux.",
+      "Worked on system integration and server administration within the IT Division.",
+      "Participated in application deployment, testing, troubleshooting, and maintenance."
     ]
   }
 ];

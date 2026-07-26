@@ -1,48 +1,50 @@
-// Sample skills data for easy updates
 export const skills = [
+
   // Programming Languages & Frameworks
-  { name: "Python", icon: "SiPython", description: "General-purpose programming and scripting", category: "coding" },
-  { name: "C", icon: "SiC", description: "Low-level programming with C", category: "coding" },
-  { name: "C++", icon: "SiCplusplus", description: "Object-oriented programming with C++", category: "coding" },
-  { name: "C#", icon: "SiCsharp", description: "Application development with C#", category: "coding" },
-  { name: ".NET", icon: "SiDotnet", description: ".NET framework for building applications", category: "coding" },
-  { name: "JavaScript", icon: "SiJavascript", description: "Web development with JavaScript", category: "coding" },
-  { name: "HTML5", icon: "SiHtml5", description: "Markup language for web pages", category: "coding" },
-  { name: "CSS3", icon: "SiCss3", description: "Styling web pages with CSS3", category: "coding" },
-  { name: "Tailwind CSS", icon: "SiTailwindcss", description: "Utility-first CSS framework", category: "coding" },
-  { name: "React.js", icon: "SiReact", description: "Building interactive UIs with React.js", category: "coding" },
-  { name: "Node.js", icon: "SiNodedotjs", description: "Backend development with Node.js", category: "coding" },
+  { name: "Python",       icon: "SiPython",      description: "General-purpose programming & scripting",      category: "languages" },
+  { name: "JavaScript",   icon: "SiJavascript",  description: "Web development & scripting",                 category: "languages" },
+  { name: "C#",           icon: "SiCsharp",      description: "Application development with C#",             category: "languages" },
+  { name: ".NET",         icon: "SiDotnet",      description: ".NET framework for building applications",     category: "languages" },
+  { name: "React.js",     icon: "SiReact",       description: "Building interactive UIs with React",         category: "languages" },
+  { name: "Node.js",      icon: "SiNodedotjs",   description: "Server-side JavaScript runtime",              category: "languages" },
+  { name: "Express.js",   icon: "SiExpress",     description: "Fast, minimalist web framework for Node.js",  category: "languages" },
+  { name: "HTML5",        icon: "SiHtml5",       description: "Markup language for web pages",               category: "languages" },
+  { name: "CSS3",         icon: "SiCss3",        description: "Styling web pages with CSS3",                 category: "languages" },
+  { name: "Tailwind CSS", icon: "SiTailwindcss", description: "Utility-first CSS framework",                 category: "languages" },
 
   // Databases
-  { name: "MySQL", icon: "SiMysql", description: "Relational database management", category: "professional" },
-  { name: "MariaDB", icon: "SiMariadb", description: "Open-source relational database", category: "professional" },
-  { name: "PostgreSQL", icon: "SiPostgresql", description: "Advanced relational database management", category: "professional" },
-  { name: "MongoDB", icon: "SiMongodb", description: "NoSQL database management", category: "professional" },
+  { name: "PostgreSQL", icon: "SiPostgresql", description: "Advanced relational database management", category: "databases" },
+  { name: "MySQL",      icon: "SiMysql",      description: "Relational database management",          category: "databases" },
+  { name: "MariaDB",    icon: "SiMariadb",    description: "Open-source relational database",         category: "databases" },
+  { name: "MongoDB",    icon: "SiMongodb",    description: "NoSQL database management",               category: "databases" },
 
-  // Tools & Platforms
-  { name: "Git", icon: "SiGit", description: "Version control with Git", category: "professional" },
-  { name: "GitHub", icon: "SiGithub", description: "Code hosting and collaboration", category: "professional" },
-  { name: "Windows Server", icon: "SiWindows", description: "Server administration on Windows", category: "professional" },
-  { name: "WampServer", icon: "SiWampserver", description: "Windows web development environment", category: "professional" },
-  { name: "PM2", icon: "SiPm2", description: "Node.js process management", category: "professional" },
-  { name: "WordPress", icon: "SiWordpress", description: "Content management system", category: "professional" },
-  { name: "NSIS", icon: "SiNginx", description: "Nullsoft Scriptable Install System (icon placeholder)", category: "professional" },
-  { name: "OpenCV", icon: "SiOpencv", description: "Computer vision library", category: "professional" },
-  { name: "YOLOv8", icon: "SiYolov3", description: "Object detection with YOLOv8 (icon placeholder)", category: "professional" },
-  { name: "RTSP", icon: "SiRaspberrypi", description: "Real Time Streaming Protocol (icon placeholder)", category: "professional" },
-  { name: "Tkinter", icon: "SiPython", description: "Python GUI development with Tkinter", category: "professional" },
-  { name: "Docker", icon: "SiDocker", description: "Containerization and DevOps", category: "professional" },
-  { name: "Linux", icon: "SiLinux", description: "Linux system usage and scripting", category: "professional" },
+  // DevOps & Tools
+  { name: "Docker",          icon: "SiDocker",        description: "Containerisation & deployment",            category: "devops" },
+  { name: "Git",             icon: "SiGit",           description: "Version control with Git",                 category: "devops" },
+  { name: "GitHub",          icon: "SiGithub",        description: "Code hosting and collaboration",           category: "devops" },
+  { name: "GitHub Actions",  icon: "SiGithubactions", description: "CI/CD pipelines with GitHub Actions",      category: "devops" },
+  { name: "PM2",             icon: "SiPm2",           description: "Node.js process management",               category: "devops" },
+  { name: "Windows Server",  icon: "SiWindows",       description: "Server administration on Windows",         category: "devops" },
+  { name: "Linux",           icon: "SiLinux",         description: "Linux system usage & scripting",           category: "devops" },
+  { name: "Swagger",         icon: "SiSwagger",       description: "API documentation with OpenAPI / Swagger", category: "devops" },
+  { name: "Postman",         icon: "SiPostman",       description: "API development and testing",              category: "devops" },
+
+  // AI & Computer Vision
+  { name: "OpenCV", icon: "SiOpencv", description: "Computer vision library",                   category: "ai" },
+  { name: "YOLOv8", icon: "SiYolo",   description: "Real-time object detection with YOLOv8",   category: "ai" },
 
   // UI/UX Design
-  { name: "Figma", icon: "SiFigma", description: "UI/UX design and prototyping", category: "professional" },
+  { name: "Figma", icon: "SiFigma", description: "UI/UX design and prototyping", category: "uiux" },
+
+  // Other Technologies
+  { name: "WordPress",  icon: "SiWordpress",  description: "Content management system",           category: "other" },
+  { name: "WampServer", icon: "SiWampserver", description: "Windows web development environment", category: "other" },
 
   // Soft Skills
-  { name: "Creativity", icon: "SiAirtable", description: "Creative thinking and innovation", category: "general" },
-  { name: "Leadership", icon: "SiGooglemeet", description: "Leading teams and projects", category: "general" },
-  { name: "Problem Solving", icon: "SiCodeforces", description: "Analytical and critical thinking", category: "general" },
-  { name: "Teamwork", icon: "SiGooglemeet", description: "Collaborative project experience", category: "general" },
-  { name: "Quick Learner", icon: "SiSpeedtest", description: "Ability to learn new skills rapidly", category: "general" },
-  { name: "Communication", icon: "SiGmail", description: "Effective written and verbal communication", category: "general" },
-  { name: "Time Management", icon: "SiClockify", description: "Efficiently managing project deadlines", category: "general" },
+  { name: "Problem Solving",     icon: "SiCodeforces", description: "Breaking down complex problems logically",      category: "soft" },
+  { name: "Analytical Thinking", icon: "SiWolfram",    description: "Data-driven decision making & analysis",        category: "soft" },
+  { name: "Teamwork",            icon: "SiGooglemeet", description: "Collaborative project experience",              category: "soft" },
+  { name: "Leadership",          icon: "SiLinkedin",   description: "Leading teams and driving projects forward",    category: "soft" },
+  { name: "Communication",       icon: "SiGmail",      description: "Effective written and verbal communication",    category: "soft" },
+  { name: "Adaptability",        icon: "SiSpeedtest",  description: "Quickly adjusting to new tools & environments", category: "soft" },
 ];
