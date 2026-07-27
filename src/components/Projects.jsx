@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from "react";
 import { projects } from "../data/projects";
 import { FaGithub, FaExternalLinkAlt, FaChevronLeft, FaChevronRight, FaExpand, FaTimes } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
+import ProjectModal from "./ProjectModal";
 
 /* ─── Lightbox Modal ─────────────────────────────────────── */
 const Lightbox = ({ screenshots, projectName, startIndex, onClose }) => {
@@ -35,7 +36,7 @@ const Lightbox = ({ screenshots, projectName, startIndex, onClose }) => {
   return (
     <AnimatePresence>
       <motion.div
-        className="fixed inset-0 z-[1000] flex items-center justify-center"
+        className="fixed inset-0 z-[2000] flex items-center justify-center"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
@@ -84,8 +85,8 @@ const Lightbox = ({ screenshots, projectName, startIndex, onClose }) => {
                 animate="center"
                 exit="exit"
                 transition={{ duration: 0.3, ease: "easeInOut" }}
-                src={screenshots[current]}
-                alt={`${projectName} screenshot ${current + 1}`}
+                src={typeof screenshots[current] === 'object' ? screenshots[current].src : screenshots[current]}
+                alt={typeof screenshots[current] === 'object' && screenshots[current].caption ? screenshots[current].caption : `${projectName} screenshot ${current + 1}`}
                 className="block max-w-[90vw] max-h-[80vh] object-contain rounded-xl"
                 draggable={false}
               />
@@ -218,8 +219,8 @@ const ScreenshotCarousel = ({ screenshots, projectName, logo, onImageClick }) =>
           animate="center"
           exit="exit"
           transition={{ duration: 0.35, ease: "easeInOut" }}
-          src={screenshots[current]}
-          alt={`${projectName} screenshot ${current + 1}`}
+          src={typeof screenshots[current] === 'object' ? screenshots[current].src : screenshots[current]}
+          alt={typeof screenshots[current] === 'object' && screenshots[current].caption ? screenshots[current].caption : `${projectName} screenshot ${current + 1}`}
           className="absolute inset-0 w-full h-full object-cover"
           style={{ objectPosition: "top" }}
           draggable={false}
@@ -278,6 +279,7 @@ const ScreenshotCarousel = ({ screenshots, projectName, logo, onImageClick }) =>
 
 const Projects = () => {
   const [lightbox, setLightbox] = useState(null); // { screenshots, projectName, startIndex }
+  const [selectedProject, setSelectedProject] = useState(null);
 
   const openLightbox = (screenshots, projectName, startIndex) => {
     if (screenshots && screenshots.length > 0) {
@@ -293,6 +295,15 @@ const Projects = () => {
           projectName={lightbox.projectName}
           startIndex={lightbox.startIndex}
           onClose={() => setLightbox(null)}
+        />
+      )}
+      {selectedProject && (
+        <ProjectModal
+          project={selectedProject}
+          onClose={() => setSelectedProject(null)}
+          onExpandScreenshot={(screenshots, startIndex) =>
+            openLightbox(screenshots, selectedProject.name, startIndex)
+          }
         />
       )}
 
@@ -324,13 +335,21 @@ const Projects = () => {
                 whileHover={{ scale: 1.04, boxShadow: '0 8px 32px 0 rgba(59,130,246,0.10)' }}
                 viewport={{ once: true }}
               >
-                <div>
-                  <ScreenshotCarousel
-                    screenshots={project.screenshots}
-                    projectName={project.name}
-                    logo={project.logo}
-                    onImageClick={(idx) => openLightbox(project.screenshots, project.name, idx)}
-                  />
+                {/* Screenshot carousel — outside click zone so expand never triggers modal */}
+                <ScreenshotCarousel
+                  screenshots={project.screenshots}
+                  projectName={project.name}
+                  logo={project.logo}
+                  onImageClick={(imgIdx) => {
+                    openLightbox(project.screenshots, project.name, imgIdx);
+                  }}
+                />
+
+                {/* Clickable info area — opens modal */}
+                <div
+                  className="cursor-pointer flex flex-col flex-1"
+                  onClick={() => setSelectedProject(project)}
+                >
                   <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                     {project.name}
                   </h3>
@@ -344,26 +363,42 @@ const Projects = () => {
                       {project.duration}
                     </p>
                   )}
-                  <p className="text-gray-700 dark:text-gray-300 mb-4">{project.description}</p>
+                  <p className="text-gray-700 dark:text-gray-300 mb-4 line-clamp-3">{project.description}</p>
                   <div className="flex flex-wrap gap-2 mb-4">
-                    {project.tech.map((tech, i) => (
+                    {project.tech.slice(0, 4).map((tech, i) => (
                       <span key={i} className="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 rounded text-xs font-medium">
                         {tech}
                       </span>
                     ))}
+                    {project.tech.length > 4 && (
+                      <span className="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-500 dark:text-gray-400 rounded text-xs font-medium">
+                        +{project.tech.length - 4} more
+                      </span>
+                    )}
                   </div>
                 </div>
-                <div className="flex gap-4 mt-2">
-                  {project.github && (
-                    <a href={project.github} target="_blank" rel="noopener noreferrer" className="text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-xl">
-                      <FaGithub />
-                    </a>
-                  )}
-                  {project.demo && (
-                    <a href={project.demo} target="_blank" rel="noopener noreferrer" className="text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-xl">
-                      <FaExternalLinkAlt />
-                    </a>
-                  )}
+
+                <div className="flex items-center justify-between mt-2">
+                  <div className="flex gap-4">
+                    {project.github && (
+                      <a href={project.github} target="_blank" rel="noopener noreferrer"
+                        className="text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-xl">
+                        <FaGithub />
+                      </a>
+                    )}
+                    {project.demo && (
+                      <a href={project.demo} target="_blank" rel="noopener noreferrer"
+                        className="text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-xl">
+                        <FaExternalLinkAlt />
+                      </a>
+                    )}
+                  </div>
+                  <button
+                    className="text-xs text-blue-500 dark:text-blue-400 font-medium opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1"
+                    onClick={() => setSelectedProject(project)}
+                  >
+                    View details →
+                  </button>
                 </div>
               </motion.div>
             ))}
