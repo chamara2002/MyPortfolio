@@ -129,7 +129,7 @@ const Lightbox = ({ screenshots, projectName, startIndex, onClose }) => {
   );
 };
 
-const ScreenshotCarousel = ({ screenshots, projectName, onImageClick }) => {
+const ScreenshotCarousel = ({ screenshots, projectName, logo, onImageClick }) => {
   const [current, setCurrent] = useState(0);
   const [direction, setDirection] = useState(1);
 
@@ -148,6 +148,46 @@ const ScreenshotCarousel = ({ screenshots, projectName, onImageClick }) => {
   };
 
   if (!hasScreenshots) {
+    // Show logo with blurred-logo background if provided, otherwise generic placeholder
+    if (logo) {
+      return (
+        <div className="relative w-full h-44 rounded-lg mb-4 overflow-hidden border border-white/10 dark:border-white/5 group/logo">
+          {/* Blurred logo background — fills the whole area with logo colors */}
+          <img
+            src={logo}
+            alt=""
+            aria-hidden="true"
+            className="absolute inset-0 w-full h-full object-cover scale-110"
+            style={{ filter: "blur(18px) saturate(1.6) brightness(0.72)" }}
+          />
+          {/* Dark overlay for contrast */}
+          <div className="absolute inset-0 bg-black/30" />
+
+          {/* Glowing ring + crisp logo on top */}
+          <div className="relative z-10 w-full h-full flex items-center justify-center">
+            <div
+              className="rounded-2xl p-1 transition-transform duration-300 group-hover/logo:scale-105"
+              style={{
+                background: "rgba(255,255,255,0.08)",
+                boxShadow: "0 0 0 2px rgba(255,255,255,0.18), 0 8px 32px rgba(0,0,0,0.35)",
+                backdropFilter: "blur(6px)",
+              }}
+            >
+              <img
+                src={logo}
+                alt={`${projectName} logo`}
+                className="h-24 w-24 object-contain rounded-xl"
+                style={{ filter: "drop-shadow(0 4px 16px rgba(0,0,0,0.4))" }}
+                onError={(e) => {
+                  e.currentTarget.closest('.group\\/logo').innerHTML =
+                    '<div class="flex flex-col items-center justify-center w-full h-full"><span class="text-xs text-white/60">No logo</span></div>';
+                }}
+              />
+            </div>
+          </div>
+        </div>
+      );
+    }
     return (
       <div
         className="w-full h-44 rounded-lg mb-4 flex items-center justify-center border-2 border-dashed border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-700/50"
@@ -288,6 +328,7 @@ const Projects = () => {
                   <ScreenshotCarousel
                     screenshots={project.screenshots}
                     projectName={project.name}
+                    logo={project.logo}
                     onImageClick={(idx) => openLightbox(project.screenshots, project.name, idx)}
                   />
                   <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">

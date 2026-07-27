@@ -8,6 +8,7 @@ export const projects = [
     association: "Freelance Project",
     github: "https://github.com/chamara2002/PolicyHub",
     demo: "",
+    logo: "/logos/policyhub.png",
     screenshots: []
   },
   {
@@ -56,6 +57,7 @@ export const projects = [
     association: "Associated with AASL (Individual Project)",
     github: "",
     demo: "",
+    logo: "/logos/stockspot.png",
     screenshots: []
   },
   {
@@ -67,6 +69,7 @@ export const projects = [
     association: "Associated with AASL (Individual Project)",
     github: "",
     demo: "",
+    logo: "/logos/wordpress.png",
     screenshots: []
   },
   {
@@ -78,6 +81,7 @@ export const projects = [
     association: "Associated with AASL (Individual Project)",
     github: "https://github.com/chamara2002/cctvDetector",
     demo: "",
+    logo: "/logos/cctvdetector.png",
     screenshots: []
   },
   {
@@ -89,6 +93,7 @@ export const projects = [
     association: "Associated with SLIIT (Group Project)",
     github: "https://github.com/chamara2002/LakeView",
     demo: "",
+    logo: "/logos/lakeview.png",
     screenshots: []
   },
   {
@@ -100,6 +105,7 @@ export const projects = [
     association: "Associated with SLIIT (Individual Project)",
     github: "https://github.com/chamara2002/TaskManager",
     demo: "",
+    logo: "/logos/taskmanager.png",
     screenshots: []
   },
   {
@@ -111,6 +117,7 @@ export const projects = [
     association: "Associated with SLIIT (Group Project)",
     github: "https://github.com/chamara2002/FreshCraze",
     demo: "",
+    logo: "/logos/freshcraze.png",
     screenshots: []
   },
   {
@@ -122,6 +129,7 @@ export const projects = [
     association: "Associated with SLIIT (Group Project)",
     github: "https://github.com/chamara2002/LIFEFLOW",
     demo: "",
+    logo: "/logos/lifeflow.png",
     screenshots: []
   },
 ];
