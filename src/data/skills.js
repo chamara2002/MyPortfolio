@@ -22,7 +22,6 @@ export const skills = [
   { name: "Docker",          icon: "SiDocker",        description: "Containerisation & deployment",            category: "devops" },
   { name: "Git",             icon: "SiGit",           description: "Version control with Git",                 category: "devops" },
   { name: "GitHub",          icon: "SiGithub",        description: "Code hosting and collaboration",           category: "devops" },
-  { name: "GitHub Actions",  icon: "SiGithubactions", description: "CI/CD pipelines with GitHub Actions",      category: "devops" },
   { name: "PM2",             icon: "SiPm2",           description: "Node.js process management",               category: "devops" },
   { name: "Windows Server",  icon: "SiWindows",       description: "Server administration on Windows",         category: "devops" },
   { name: "Linux",           icon: "SiLinux",         description: "Linux system usage & scripting",           category: "devops" },
