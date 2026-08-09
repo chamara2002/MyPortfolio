@@ -1,135 +1,139 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useForm, ValidationError } from '@formspree/react';
+import { FaEnvelope, FaPhoneAlt, FaMapMarkerAlt, FaGithub, FaLinkedin, FaFacebook, FaPaperPlane, FaCheckCircle } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 
 const Contact = () => {
   const [state, handleSubmit] = useForm("mvgbzjgv");
   
   return (
-    <section id="contact" className="py-20 bg-gray-50 dark:bg-gray-950 transition-colors" data-aos="fade-up">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-10 text-center">Let's Connect</h2>
-        <div className="flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-16">
-          {/* Left side: Contact Info Cards */}
-          <div className="w-full lg:w-1/2 flex justify-center">
-            <div className="max-w-md w-full">
-              <p className="text-gray-900 dark:text-gray-200 text-lg mb-8">I'm always open to discussing new projects, creative ideas or opportunities to be part of your visions.</p>
-              <div className="flex flex-col gap-6">
-                <div className="flex items-center gap-4 text-gray-900 dark:text-white">
-                  <span className="text-blue-400">
-                    {/* Email icon */}
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-6 h-6">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                    </svg>
-                  </span>
-                  <div>
-                    <div className="font-semibold">Email</div>
-                    <a href="mailto:lccperera2002@gmail.com" className="text-gray-600 dark:text-gray-300 text-sm hover:underline">lccperera2002@gmail.com</a>
+    <section id="contact" className="py-20 relative bg-zinc-50 dark:bg-[#090d16] transition-colors">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Section Header */}
+        <div className="flex flex-col items-center mb-14 text-center">
+          <span className="text-[11px] font-mono font-semibold text-indigo-600 dark:text-indigo-400 uppercase tracking-widest mb-1.5">
+            Get In Touch
+          </span>
+          <h2 className="text-2xl sm:text-3xl font-bold text-zinc-900 dark:text-white tracking-tight">
+            Let's Connect
+          </h2>
+          <div className="w-10 h-1 bg-indigo-600 dark:bg-indigo-400 rounded-full mt-2.5" />
+        </div>
+
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-start">
+          
+          {/* Left Column: Contact Details & Social Links */}
+          <div className="flex flex-col space-y-7">
+            <div>
+              <h3 className="text-xl font-bold text-zinc-900 dark:text-white mb-2">
+                Start a Conversation
+              </h3>
+              <p className="text-zinc-600 dark:text-zinc-300 text-xs sm:text-sm leading-relaxed">
+                I'm always open to discussing new projects, creative ideas or opportunities to be part of your visions.
+              </p>
+            </div>
+
+            {/* Direct Contact Info Cards */}
+            <div className="space-y-3.5">
+              <a 
+                href="mailto:lccperera2002@gmail.com" 
+                className="flex items-center gap-3.5 p-3.5 rounded-2xl bg-white dark:bg-zinc-900/70 border border-zinc-200/90 dark:border-zinc-800/80 shadow-sm hover:border-indigo-500/40 transition-all group"
+              >
+                <div className="w-10 h-10 rounded-xl bg-indigo-50 dark:bg-indigo-500/10 border border-indigo-200/50 dark:border-indigo-500/20 flex items-center justify-center text-indigo-600 dark:text-indigo-400 group-hover:scale-105 transition-transform shrink-0">
+                  <FaEnvelope size={16} />
+                </div>
+                <div>
+                  <div className="text-[10px] font-mono font-medium text-zinc-400 uppercase">Email</div>
+                  <div className="text-xs sm:text-sm font-semibold text-zinc-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+                    lccperera2002@gmail.com
                   </div>
                 </div>
-                
-                <div className="flex items-center gap-4 text-gray-900 dark:text-white">
-                  <span className="text-blue-400">
-                    {/* Phone icon */}
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-6 h-6">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M22 16.92v3a2 2 0 01-2.18 2A19.72 19.72 0 013 5.18 2 2 0 015 3h3a2 2 0 012 1.72c.13 1.13.37 2.23.72 3.28a2 2 0 01-.45 2.11l-1.27 1.27a16 16 0 006.29 6.29l1.27-1.27a2 2 0 012.11-.45c1.05.35 2.15.59 3.28.72A2 2 0 0122 16.92z" />
-                    </svg>
-                  </span>
-                  <div>
-                    <div className="font-semibold">Phone</div>
-                    <a href="tel:+94785347037" className="text-gray-600 dark:text-gray-300 text-sm hover:underline">+94 78 5347 037</a>
+              </a>
+
+              <a 
+                href="tel:+94785347037" 
+                className="flex items-center gap-3.5 p-3.5 rounded-2xl bg-white dark:bg-zinc-900/70 border border-zinc-200/90 dark:border-zinc-800/80 shadow-sm hover:border-indigo-500/40 transition-all group"
+              >
+                <div className="w-10 h-10 rounded-xl bg-indigo-50 dark:bg-indigo-500/10 border border-indigo-200/50 dark:border-indigo-500/20 flex items-center justify-center text-indigo-600 dark:text-indigo-400 group-hover:scale-105 transition-transform shrink-0">
+                  <FaPhoneAlt size={14} />
+                </div>
+                <div>
+                  <div className="text-[10px] font-mono font-medium text-zinc-400 uppercase">Phone</div>
+                  <div className="text-xs sm:text-sm font-semibold text-zinc-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+                    +94 78 5347 037
                   </div>
                 </div>
-                
-                <div className="flex items-center gap-4 text-gray-900 dark:text-white">
-                  <span className="text-blue-400">
-                    {/* Location icon */}
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-6 h-6">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1112 6a2.5 2.5 0 010 5.5z" />
-                    </svg>
-                  </span>
-                  <div>
-                    <div className="font-semibold">Location</div>
-                    <a href="https://www.google.com/maps/place/Kadawatha,+Sri+Lanka" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-300 text-sm hover:underline">Kadawatha, Sri Lanka</a>
+              </a>
+
+              <a 
+                href="https://www.google.com/maps/place/Kadawatha,+Sri+Lanka" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="flex items-center gap-3.5 p-3.5 rounded-2xl bg-white dark:bg-zinc-900/70 border border-zinc-200/90 dark:border-zinc-800/80 shadow-sm hover:border-indigo-500/40 transition-all group"
+              >
+                <div className="w-10 h-10 rounded-xl bg-indigo-50 dark:bg-indigo-500/10 border border-indigo-200/50 dark:border-indigo-500/20 flex items-center justify-center text-indigo-600 dark:text-indigo-400 group-hover:scale-105 transition-transform shrink-0">
+                  <FaMapMarkerAlt size={16} />
+                </div>
+                <div>
+                  <div className="text-[10px] font-mono font-medium text-zinc-400 uppercase">Location</div>
+                  <div className="text-xs sm:text-sm font-semibold text-zinc-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+                    Kadawatha, Sri Lanka
                   </div>
                 </div>
-              </div>
-              
-              {/* Social Media Links */}
-              <div className="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
-                <div className="font-semibold text-gray-900 dark:text-white mb-4">Connect with me</div>
-                <div className="grid grid-cols-2 gap-3">
-                  {/* GitHub */}
-                  <a href="https://github.com/chamara2002" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-gray-900 dark:hover:border-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-all group">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 text-gray-700 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-white" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                    </svg>
-                    <span className="text-sm font-medium text-gray-700 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-white">GitHub</span>
-                  </a>
-                  
-                  {/* LinkedIn */}
-                  <a href="https://www.linkedin.com/in/chamara-perera-04b2b3285/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-blue-500 hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-all group">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 text-gray-700 dark:text-gray-300 group-hover:text-blue-600 dark:group-hover:text-blue-400" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                    </svg>
-                    <span className="text-sm font-medium text-gray-700 dark:text-gray-300 group-hover:text-blue-600 dark:group-hover:text-blue-400">LinkedIn</span>
-                  </a>
-                  
-                  {/* Facebook */}
-                  <a href="https://web.facebook.com/chamara.perera.2002/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-blue-600 hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-all group">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 text-gray-700 dark:text-gray-300 group-hover:text-blue-700 dark:group-hover:text-blue-500" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/>
-                    </svg>
-                    <span className="text-sm font-medium text-gray-700 dark:text-gray-300 group-hover:text-blue-700 dark:group-hover:text-blue-500">Facebook</span>
-                  </a>
-                  
-                  {/* Twitter/X */}
-                  <a href="https://x.com/chamara__2002" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-gray-900 dark:hover:border-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-all group">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 text-gray-700 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-white" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                    </svg>
-                    <span className="text-sm font-medium text-gray-700 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-white">Twitter/X</span>
-                  </a>
-                </div>
+              </a>
+            </div>
+
+            {/* Social Media Grid */}
+            <div className="pt-1">
+              <h4 className="text-[11px] font-mono font-bold uppercase tracking-widest text-zinc-500 dark:text-zinc-400 mb-3">
+                Social Profiles
+              </h4>
+              <div className="grid grid-cols-2 gap-2.5">
+                <a href="https://github.com/chamara2002" target="_blank" rel="noopener noreferrer" 
+                  className="flex items-center gap-2.5 p-3 rounded-xl bg-white dark:bg-zinc-900/70 border border-zinc-200/90 dark:border-zinc-800/80 hover:border-zinc-400 dark:hover:border-zinc-600 transition-all group">
+                  <FaGithub size={16} className="text-zinc-700 dark:text-zinc-300 group-hover:scale-110 transition-transform" />
+                  <span className="text-xs font-semibold text-zinc-800 dark:text-zinc-200">GitHub</span>
+                </a>
+
+                <a href="https://www.linkedin.com/in/chamara-perera-04b2b3285/" target="_blank" rel="noopener noreferrer" 
+                  className="flex items-center gap-2.5 p-3 rounded-xl bg-white dark:bg-zinc-900/70 border border-zinc-200/90 dark:border-zinc-800/80 hover:border-indigo-500 transition-all group">
+                  <FaLinkedin size={16} className="text-indigo-600 dark:text-indigo-400 group-hover:scale-110 transition-transform" />
+                  <span className="text-xs font-semibold text-zinc-800 dark:text-zinc-200">LinkedIn</span>
+                </a>
+
+                <a href="https://web.facebook.com/chamara.perera.2002/" target="_blank" rel="noopener noreferrer" 
+                  className="flex items-center gap-2.5 p-3 rounded-xl bg-white dark:bg-zinc-900/70 border border-zinc-200/90 dark:border-zinc-800/80 hover:border-blue-500 transition-all group">
+                  <FaFacebook size={16} className="text-blue-600 dark:text-blue-400 group-hover:scale-110 transition-transform" />
+                  <span className="text-xs font-semibold text-zinc-800 dark:text-zinc-200">Facebook</span>
+                </a>
+
+                <a href="https://x.com/chamara__2002" target="_blank" rel="noopener noreferrer" 
+                  className="flex items-center gap-2.5 p-3 rounded-xl bg-white dark:bg-zinc-900/70 border border-zinc-200/90 dark:border-zinc-800/80 hover:border-zinc-400 dark:hover:border-zinc-600 transition-all group">
+                  <FaXTwitter size={16} className="text-zinc-700 dark:text-zinc-300 group-hover:scale-110 transition-transform" />
+                  <span className="text-xs font-semibold text-zinc-800 dark:text-zinc-200">Twitter/X</span>
+                </a>
               </div>
             </div>
           </div>
-          
-          {/* Right side: Contact Form */}
-          <div className="w-full lg:w-1/2 flex justify-center">
+
+          {/* Right Column: Contact Form */}
+          <div className="bg-white dark:bg-zinc-900/70 p-6 sm:p-8 rounded-2xl border border-zinc-200/90 dark:border-zinc-800/80 shadow-md">
             {state.succeeded ? (
-              <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg w-full max-w-md flex flex-col items-center">
-                <div className="text-green-500 mb-3">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
+              <div className="py-10 flex flex-col items-center text-center space-y-3">
+                <div className="w-12 h-12 rounded-full bg-emerald-500/10 text-emerald-500 flex items-center justify-center">
+                  <FaCheckCircle size={28} />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">Message Sent!</h3>
-                <p className="text-gray-600 dark:text-gray-300 text-center text-sm">Thank you for reaching out. I'll get back to you as soon as possible.</p>
+                <h3 className="text-xl font-bold text-zinc-900 dark:text-white">Message Sent!</h3>
+                <p className="text-zinc-600 dark:text-zinc-300 text-xs sm:text-sm max-w-xs">
+                  Thank you for reaching out. I'll get back to you as soon as possible.
+                </p>
               </div>
             ) : (
-              <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 max-w-md w-full">
-                <motion.form
-                  onSubmit={handleSubmit}
-                  className="flex flex-col gap-4 w-full"
-                  initial="hidden"
-                  whileInView="visible"
-                  variants={{
-                    hidden: {},
-                    visible: {
-                      transition: {
-                        staggerChildren: 0.13,
-                        delayChildren: 0.2
-                      }
-                    }
-                  }}
-                  viewport={{ once: true }}
-                >
-                <motion.div
-                  variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
-                  transition={{ duration: 0.4, type: 'spring', stiffness: 70 }}
-                >
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-900 dark:text-gray-200 mb-1">
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div>
+                  <label htmlFor="name" className="block text-[11px] font-mono font-semibold text-zinc-700 dark:text-zinc-300 uppercase mb-1.5">
                     Name
                   </label>
                   <input
@@ -137,77 +141,67 @@ const Contact = () => {
                     type="text"
                     name="name"
                     placeholder="Your name"
-                    className="w-full px-3 py-3 rounded-md bg-gray-100 dark:bg-gray-900 border-0 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-400 text-sm"
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-zinc-50 dark:bg-zinc-800/70 border border-zinc-200 dark:border-zinc-700 text-zinc-900 dark:text-white placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-xs sm:text-sm transition-all"
                     required
                   />
-                </motion.div>
-                
-                <motion.div
-                  variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
-                  transition={{ duration: 0.4, type: 'spring', stiffness: 70 }}
-                >
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-900 dark:text-gray-200 mb-1">
+                </div>
+
+                <div>
+                  <label htmlFor="email" className="block text-[11px] font-mono font-semibold text-zinc-700 dark:text-zinc-300 uppercase mb-1.5">
                     Email
                   </label>
                   <input
                     id="email"
-                    type="email" 
+                    type="email"
                     name="email"
                     placeholder="your@email.com"
-                    className="w-full px-3 py-3 rounded-md bg-gray-100 dark:bg-gray-900 border-0 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-400 text-sm"
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-zinc-50 dark:bg-zinc-800/70 border border-zinc-200 dark:border-zinc-700 text-zinc-900 dark:text-white placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-xs sm:text-sm transition-all"
                     required
                   />
                   <ValidationError 
                     prefix="Email" 
                     field="email"
                     errors={state.errors}
-                    className="text-red-500 text-xs mt-1"
+                    className="text-rose-500 text-xs mt-1 font-mono"
                   />
-                </motion.div>
-                
-                <motion.div
-                  variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
-                  transition={{ duration: 0.4, type: 'spring', stiffness: 70 }}
-                >
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-900 dark:text-gray-200 mb-1">
+                </div>
+
+                <div>
+                  <label htmlFor="message" className="block text-[11px] font-mono font-semibold text-zinc-700 dark:text-zinc-300 uppercase mb-1.5">
                     Message
                   </label>
                   <textarea
                     id="message"
                     name="message"
-                    placeholder="Your message"
+                    placeholder="Tell me about your project or inquiry..."
                     rows="4"
-                    className="w-full px-3 py-3 rounded-md bg-gray-100 dark:bg-gray-900 border-0 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-400 text-sm"
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-zinc-50 dark:bg-zinc-800/70 border border-zinc-200 dark:border-zinc-700 text-zinc-900 dark:text-white placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-xs sm:text-sm transition-all resize-none"
                     required
-                  ></textarea>
+                  />
                   <ValidationError 
                     prefix="Message" 
                     field="message"
                     errors={state.errors}
-                    className="text-red-500 text-xs mt-1"
+                    className="text-rose-500 text-xs mt-1 font-mono"
                   />
-                </motion.div>
-                
-                <motion.button
+                </div>
+
+                <button
                   type="submit"
                   disabled={state.submitting}
-                  className="w-full mt-2 px-4 py-2.5 bg-blue-600 text-white rounded-md font-medium text-sm hover:bg-blue-700 transition-colors flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
-                  variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
-                  transition={{ duration: 0.4, type: 'spring', stiffness: 70 }}
+                  className="w-full py-3 px-5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs sm:text-sm font-semibold shadow-md shadow-indigo-500/20 transition-all flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed group"
                 >
-                  {state.submitting ? 'Sending...' : 'Send Message'}
+                  <span>{state.submitting ? "Sending..." : "Send Message"}</span>
                   {!state.submitting && (
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 ml-1">
-                      <path d="M22 2L11 13"></path>
-                      <path d="M22 2L15 22L11 13L2 9L22 2Z"></path>
-                    </svg>
+                    <FaPaperPlane size={12} className="group-hover:translate-x-1 group-hover:-translate-y-0.5 transition-transform" />
                   )}
-                </motion.button>
-              </motion.form>
-              </div>
+                </button>
+              </form>
             )}
           </div>
+
         </div>
+
       </div>
     </section>
   );

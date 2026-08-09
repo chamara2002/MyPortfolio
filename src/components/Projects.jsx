@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { projects } from "../data/projects";
-import { FaGithub, FaExternalLinkAlt, FaChevronLeft, FaChevronRight, FaExpand, FaTimes } from "react-icons/fa";
+import { FaGithub, FaExternalLinkAlt, FaChevronLeft, FaChevronRight, FaExpand, FaTimes, FaArrowRight } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 import ProjectModal from "./ProjectModal";
 
@@ -36,42 +36,38 @@ const Lightbox = ({ screenshots, projectName, startIndex, onClose }) => {
   return (
     <AnimatePresence>
       <motion.div
-        className="fixed inset-0 z-[2000] flex items-center justify-center"
+        className="fixed inset-0 z-[2000] flex items-center justify-center p-4"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.2 }}
       >
-        {/* Backdrop */}
         <div
-          className="absolute inset-0 bg-black/85 backdrop-blur-sm"
+          className="absolute inset-0 bg-black/90 backdrop-blur-md"
           onClick={onClose}
         />
 
-        {/* Image container */}
         <motion.div
-          className="relative z-10 flex flex-col items-center max-w-[90vw] max-h-[90vh]"
-          initial={{ scale: 0.85, opacity: 0 }}
+          className="relative z-10 flex flex-col items-center max-w-[92vw] max-h-[92vh]"
+          initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
-          exit={{ scale: 0.85, opacity: 0 }}
+          exit={{ scale: 0.9, opacity: 0 }}
           transition={{ duration: 0.25, ease: "easeOut" }}
         >
-          {/* Close button */}
-          <button
-            onClick={onClose}
-            className="absolute -top-10 right-0 text-white/80 hover:text-white transition-colors z-20"
-            aria-label="Close lightbox"
-          >
-            <FaTimes size={22} />
-          </button>
+          <div className="w-full flex items-center justify-between mb-3 text-white/80">
+            <p className="text-xs font-medium">
+              {projectName} <span className="text-white/40 ml-2 font-mono">{current + 1} / {screenshots.length}</span>
+            </p>
+            <button
+              onClick={onClose}
+              className="p-1.5 rounded-full hover:bg-white/10 text-white/80 hover:text-white transition-colors"
+              aria-label="Close lightbox"
+            >
+              <FaTimes size={16} />
+            </button>
+          </div>
 
-          {/* Caption */}
-          <p className="absolute -top-10 left-0 text-white/70 text-sm font-medium">
-            {projectName} &mdash; {current + 1} / {screenshots.length}
-          </p>
-
-          {/* Image with slide animation */}
-          <div className="relative overflow-hidden rounded-xl shadow-2xl" style={{ maxWidth: "90vw", maxHeight: "80vh" }}>
+          <div className="relative overflow-hidden rounded-2xl shadow-2xl bg-black/40 border border-white/10" style={{ maxWidth: "90vw", maxHeight: "80vh" }}>
             <AnimatePresence initial={false} custom={direction}>
               <motion.img
                 key={current}
@@ -87,37 +83,35 @@ const Lightbox = ({ screenshots, projectName, startIndex, onClose }) => {
                 transition={{ duration: 0.3, ease: "easeInOut" }}
                 src={typeof screenshots[current] === 'object' ? screenshots[current].src : screenshots[current]}
                 alt={typeof screenshots[current] === 'object' && screenshots[current].caption ? screenshots[current].caption : `${projectName} screenshot ${current + 1}`}
-                className="block max-w-[90vw] max-h-[80vh] object-contain rounded-xl"
+                className="block max-w-[90vw] max-h-[80vh] object-contain rounded-2xl"
                 draggable={false}
               />
             </AnimatePresence>
           </div>
 
-          {/* Navigation arrows */}
           {screenshots.length > 1 && (
             <>
               <button
                 onClick={prev}
-                className="absolute left-[-3rem] top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/25 text-white rounded-full w-10 h-10 flex items-center justify-center transition-colors"
+                className="absolute left-[-3.5rem] top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 text-white rounded-full w-10 h-10 flex items-center justify-center backdrop-blur-md transition-colors"
                 aria-label="Previous screenshot"
               >
-                <FaChevronLeft size={16} />
+                <FaChevronLeft size={14} />
               </button>
               <button
                 onClick={next}
-                className="absolute right-[-3rem] top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/25 text-white rounded-full w-10 h-10 flex items-center justify-center transition-colors"
+                className="absolute right-[-3.5rem] top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 text-white rounded-full w-10 h-10 flex items-center justify-center backdrop-blur-md transition-colors"
                 aria-label="Next screenshot"
               >
-                <FaChevronRight size={16} />
+                <FaChevronRight size={14} />
               </button>
 
-              {/* Dot indicators */}
               <div className="flex gap-2 mt-4">
                 {screenshots.map((_, i) => (
                   <button
                     key={i}
                     onClick={() => { setDirection(i > current ? 1 : -1); setCurrent(i); }}
-                    className={`w-2 h-2 rounded-full transition-all ${i === current ? "bg-white w-5" : "bg-white/40"}`}
+                    className={`h-1.5 rounded-full transition-all ${i === current ? "bg-indigo-400 w-5" : "bg-white/30 w-1.5"}`}
                     aria-label={`Go to screenshot ${i + 1}`}
                   />
                 ))}
@@ -149,63 +143,40 @@ const ScreenshotCarousel = ({ screenshots, projectName, logo, onImageClick }) =>
   };
 
   if (!hasScreenshots) {
-    // Show logo with blurred-logo background if provided, otherwise generic placeholder
     if (logo) {
       return (
-        <div className="relative w-full h-44 rounded-lg mb-4 overflow-hidden border border-white/10 dark:border-white/5 group/logo">
-          {/* Blurred logo background — fills the whole area with logo colors */}
+        <div className="relative w-full h-48 rounded-xl mb-3.5 overflow-hidden border border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-900 group/logo flex items-center justify-center">
           <img
             src={logo}
             alt=""
             aria-hidden="true"
-            className="absolute inset-0 w-full h-full object-cover scale-110"
-            style={{ filter: "blur(18px) saturate(1.6) brightness(0.72)" }}
+            className="absolute inset-0 w-full h-full object-cover scale-110 opacity-30 blur-xl"
           />
-          {/* Dark overlay for contrast */}
-          <div className="absolute inset-0 bg-black/30" />
-
-          {/* Glowing ring + crisp logo on top */}
-          <div className="relative z-10 w-full h-full flex items-center justify-center">
-            <div
-              className="rounded-2xl p-1 transition-transform duration-300 group-hover/logo:scale-105"
-              style={{
-                background: "rgba(255,255,255,0.08)",
-                boxShadow: "0 0 0 2px rgba(255,255,255,0.18), 0 8px 32px rgba(0,0,0,0.35)",
-                backdropFilter: "blur(6px)",
+          <div className="relative z-10 p-2.5 rounded-2xl bg-white/80 dark:bg-zinc-900/80 border border-zinc-200/80 dark:border-zinc-700/80 shadow-md backdrop-blur-md transition-transform duration-300 group-hover/logo:scale-105">
+            <img
+              src={logo}
+              alt={`${projectName} logo`}
+              className="h-16 w-16 object-contain rounded-lg"
+              onError={(e) => {
+                e.currentTarget.parentElement.innerHTML =
+                  '<span class="text-xs text-zinc-400 font-mono">Project</span>';
               }}
-            >
-              <img
-                src={logo}
-                alt={`${projectName} logo`}
-                className="h-24 w-24 object-contain rounded-xl"
-                style={{ filter: "drop-shadow(0 4px 16px rgba(0,0,0,0.4))" }}
-                onError={(e) => {
-                  e.currentTarget.closest('.group\\/logo').innerHTML =
-                    '<div class="flex flex-col items-center justify-center w-full h-full"><span class="text-xs text-white/60">No logo</span></div>';
-                }}
-              />
-            </div>
+            />
           </div>
         </div>
       );
     }
     return (
       <div
-        className="w-full h-44 rounded-lg mb-4 flex items-center justify-center border-2 border-dashed border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-700/50"
-        title="Add screenshots to projects.js"
+        className="w-full h-48 rounded-xl mb-3.5 flex items-center justify-center border border-dashed border-zinc-300 dark:border-zinc-800 bg-zinc-100/50 dark:bg-zinc-900/40"
       >
-        <div className="text-center">
-          <svg className="mx-auto mb-1 text-gray-400 dark:text-gray-500" width="32" height="32" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-          </svg>
-          <span className="text-xs text-gray-400 dark:text-gray-500">No screenshot</span>
-        </div>
+        <span className="text-[11px] font-mono text-zinc-400 dark:text-zinc-500">No screenshot preview</span>
       </div>
     );
   }
 
   return (
-    <div className="relative w-full h-44 mb-4 rounded-lg overflow-hidden group/carousel border border-gray-200 dark:border-gray-700">
+    <div className="relative w-full h-48 mb-3.5 rounded-xl overflow-hidden group/carousel border border-zinc-200 dark:border-zinc-800 bg-zinc-900">
       <AnimatePresence initial={false} custom={direction}>
         <motion.img
           key={current}
@@ -227,49 +198,45 @@ const ScreenshotCarousel = ({ screenshots, projectName, logo, onImageClick }) =>
         />
       </AnimatePresence>
 
-      {/* Clickable expand overlay */}
       <div
         onClick={(e) => { e.stopPropagation(); onImageClick && onImageClick(current); }}
-        className="absolute inset-0 z-[5] flex items-center justify-center cursor-zoom-in bg-black/0 hover:bg-black/20 transition-colors group/expand"
+        className="absolute inset-0 z-[5] flex items-center justify-center cursor-zoom-in bg-black/0 hover:bg-black/25 transition-colors group/expand"
       >
-        <div className="opacity-0 group-hover/expand:opacity-100 transition-opacity bg-black/50 rounded-full p-2">
-          <FaExpand size={16} className="text-white" />
+        <div className="opacity-0 group-hover/expand:opacity-100 transition-opacity bg-black/60 rounded-full p-2 backdrop-blur-sm text-white">
+          <FaExpand size={12} />
         </div>
       </div>
 
-      {/* Prev / Next arrows — only show when multiple images */}
       {screenshots.length > 1 && (
         <>
           <button
             onClick={prev}
-            className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-black/40 hover:bg-black/60 text-white rounded-full w-7 h-7 flex items-center justify-center opacity-0 group-hover/carousel:opacity-100 transition-opacity"
+            className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-black/60 hover:bg-black/80 text-white rounded-full w-6 h-6 flex items-center justify-center opacity-0 group-hover/carousel:opacity-100 transition-opacity backdrop-blur-sm"
             aria-label="Previous screenshot"
           >
-            <FaChevronLeft size={12} />
+            <FaChevronLeft size={10} />
           </button>
           <button
             onClick={next}
-            className="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-black/40 hover:bg-black/60 text-white rounded-full w-7 h-7 flex items-center justify-center opacity-0 group-hover/carousel:opacity-100 transition-opacity"
+            className="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-black/60 hover:bg-black/80 text-white rounded-full w-6 h-6 flex items-center justify-center opacity-0 group-hover/carousel:opacity-100 transition-opacity backdrop-blur-sm"
             aria-label="Next screenshot"
           >
-            <FaChevronRight size={12} />
+            <FaChevronRight size={10} />
           </button>
 
-          {/* Dot indicators */}
-          <div className="absolute bottom-2 left-0 right-0 flex justify-center gap-1.5 z-10">
+          <div className="absolute bottom-2.5 left-0 right-0 flex justify-center gap-1 z-10">
             {screenshots.map((_, i) => (
               <button
                 key={i}
                 onClick={(e) => { e.stopPropagation(); setDirection(i > current ? 1 : -1); setCurrent(i); }}
-                className={`w-1.5 h-1.5 rounded-full transition-all ${i === current ? "bg-white w-3" : "bg-white/50"}`}
+                className={`h-1 rounded-full transition-all ${i === current ? "bg-white w-3.5" : "bg-white/40 w-1"}`}
                 aria-label={`Go to screenshot ${i + 1}`}
               />
             ))}
           </div>
 
-          {/* Counter badge */}
-          <div className="absolute top-2 right-2 z-10 bg-black/40 text-white text-xs px-1.5 py-0.5 rounded">
-            {current + 1} / {screenshots.length}
+          <div className="absolute top-2 right-2 z-10 bg-black/60 backdrop-blur-md text-white text-[9px] font-mono px-1.5 py-0.5 rounded border border-white/10">
+            {current + 1}/{screenshots.length}
           </div>
         </>
       )}
@@ -278,7 +245,7 @@ const ScreenshotCarousel = ({ screenshots, projectName, logo, onImageClick }) =>
 };
 
 const Projects = () => {
-  const [lightbox, setLightbox] = useState(null); // { screenshots, projectName, startIndex }
+  const [lightbox, setLightbox] = useState(null);
   const [selectedProject, setSelectedProject] = useState(null);
 
   const openLightbox = (screenshots, projectName, startIndex) => {
@@ -307,102 +274,123 @@ const Projects = () => {
         />
       )}
 
-      <section id="projects" className="py-20 bg-white dark:bg-gray-900 transition-colors" data-aos="fade-up">
-        <div className="max-w-7xl mx-auto px-2">
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-10 text-center">Projects</h2>
+      <section id="projects" className="py-20 relative bg-zinc-50 dark:bg-[#090d16] transition-colors">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          {/* Section Header */}
+          <div className="flex flex-col items-center mb-14 text-center">
+            <span className="text-[11px] font-mono font-semibold text-indigo-600 dark:text-indigo-400 uppercase tracking-widest mb-1.5">
+              Portfolio Showcase
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-bold text-zinc-900 dark:text-white tracking-tight">
+              Featured Projects
+            </h2>
+            <div className="w-10 h-1 bg-indigo-600 dark:bg-indigo-400 rounded-full mt-2.5" />
+          </div>
+
+          {/* Cards Grid: 2 projects per line */}
           <motion.div
-            className="grid gap-8 md:grid-cols-2 lg:grid-cols-3"
+            className="grid gap-7 grid-cols-1 md:grid-cols-2"
             initial="hidden"
             whileInView="visible"
             variants={{
               hidden: {},
               visible: {
                 transition: {
-                  staggerChildren: 0.18,
-                  delayChildren: 0.2
+                  staggerChildren: 0.1,
                 }
               }
             }}
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "-50px" }}
           >
             {projects.map((project, idx) => (
               <motion.div
                 key={idx}
-                className="bg-gray-50 dark:bg-gray-800 rounded-xl shadow hover:shadow-lg transition-shadow p-6 flex flex-col justify-between border border-transparent hover:border-blue-400 dark:hover:border-blue-500 group"
-                initial={{ opacity: 0, y: 40, scale: 0.96 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                transition={{ duration: 0.7, type: 'spring', stiffness: 80 }}
-                whileHover={{ scale: 1.04, boxShadow: '0 8px 32px 0 rgba(59,130,246,0.10)' }}
-                viewport={{ once: true }}
+                className="bg-white dark:bg-zinc-900/70 rounded-2xl p-5 border border-zinc-200/90 dark:border-zinc-800/80 shadow-sm hover:shadow-lg hover:border-indigo-500/40 dark:hover:border-indigo-500/40 transition-all duration-300 flex flex-col justify-between group"
+                variants={{
+                  hidden: { opacity: 0, y: 25 },
+                  visible: { opacity: 1, y: 0 }
+                }}
+                transition={{ duration: 0.45, ease: "easeOut" }}
               >
-                {/* Screenshot carousel — outside click zone so expand never triggers modal */}
-                <ScreenshotCarousel
-                  screenshots={project.screenshots}
-                  projectName={project.name}
-                  logo={project.logo}
-                  onImageClick={(imgIdx) => {
-                    openLightbox(project.screenshots, project.name, imgIdx);
-                  }}
-                />
+                <div>
+                  <ScreenshotCarousel
+                    screenshots={project.screenshots}
+                    projectName={project.name}
+                    logo={project.logo}
+                    onImageClick={(imgIdx) => {
+                      openLightbox(project.screenshots, project.name, imgIdx);
+                    }}
+                  />
 
-                {/* Clickable info area — opens modal */}
-                <div
-                  className="cursor-pointer flex flex-col flex-1"
-                  onClick={() => setSelectedProject(project)}
-                >
-                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                    {project.name}
-                  </h3>
-                  {project.association && (
-                    <p className="text-sm text-blue-600 dark:text-blue-400 mb-1 font-medium">
-                      {project.association}
+                  <div
+                    className="cursor-pointer flex flex-col"
+                    onClick={() => setSelectedProject(project)}
+                  >
+                    <div className="flex flex-wrap items-center gap-2 mb-1.5">
+                      {project.association && (
+                        <span className="text-[10px] font-mono font-semibold px-2 py-0.5 rounded bg-indigo-50 text-indigo-600 dark:bg-indigo-500/10 dark:text-indigo-400 border border-indigo-200/60 dark:border-indigo-500/20">
+                          {project.association}
+                        </span>
+                      )}
+                      {project.duration && (
+                        <span className="text-[10px] font-mono text-zinc-500 dark:text-zinc-400">
+                          {project.duration}
+                        </span>
+                      )}
+                    </div>
+
+                    <h3 className="text-base font-bold text-zinc-900 dark:text-white mb-1.5 leading-snug group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+                      {project.name}
+                    </h3>
+
+                    <p className="text-zinc-600 dark:text-zinc-300 text-xs sm:text-xs mb-3.5 line-clamp-3 leading-relaxed">
+                      {project.description}
                     </p>
-                  )}
-                  {project.duration && (
-                    <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">
-                      {project.duration}
-                    </p>
-                  )}
-                  <p className="text-gray-700 dark:text-gray-300 mb-4 line-clamp-3">{project.description}</p>
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.tech.slice(0, 4).map((tech, i) => (
-                      <span key={i} className="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 rounded text-xs font-medium">
-                        {tech}
-                      </span>
-                    ))}
-                    {project.tech.length > 4 && (
-                      <span className="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-500 dark:text-gray-400 rounded text-xs font-medium">
-                        +{project.tech.length - 4} more
-                      </span>
-                    )}
+
+                    <div className="flex flex-wrap gap-1 mb-3">
+                      {project.tech.slice(0, 5).map((tech, i) => (
+                        <span key={i} className="px-2 py-0.5 bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 rounded text-[11px] font-mono font-medium border border-zinc-200/60 dark:border-zinc-700/60">
+                          {tech}
+                        </span>
+                      ))}
+                      {project.tech.length > 5 && (
+                        <span className="px-1.5 py-0.5 bg-zinc-100 dark:bg-zinc-800 text-zinc-500 dark:text-zinc-400 rounded text-[11px] font-mono">
+                          +{project.tech.length - 5}
+                        </span>
+                      )}
+                    </div>
                   </div>
                 </div>
 
-                <div className="flex items-center justify-between mt-2">
-                  <div className="flex gap-4">
+                <div className="flex items-center justify-between pt-2.5 border-t border-zinc-100 dark:border-zinc-800/80 mt-auto">
+                  <div className="flex items-center gap-2.5">
                     {project.github && (
                       <a href={project.github} target="_blank" rel="noopener noreferrer"
-                        className="text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-xl">
-                        <FaGithub />
+                        className="text-zinc-600 dark:text-zinc-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors p-0.5"
+                        aria-label="GitHub Repo">
+                        <FaGithub size={16} />
                       </a>
                     )}
                     {project.demo && (
                       <a href={project.demo} target="_blank" rel="noopener noreferrer"
-                        className="text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-xl">
-                        <FaExternalLinkAlt />
+                        className="text-zinc-600 dark:text-zinc-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors p-0.5"
+                        aria-label="Live Demo">
+                        <FaExternalLinkAlt size={13} />
                       </a>
                     )}
                   </div>
                   <button
-                    className="text-xs text-blue-500 dark:text-blue-400 font-medium opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1"
+                    className="text-xs font-semibold text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 transition-colors flex items-center gap-1"
                     onClick={() => setSelectedProject(project)}
                   >
-                    View details →
+                    Details <FaArrowRight size={9} className="group-hover:translate-x-1 transition-transform" />
                   </button>
                 </div>
               </motion.div>
             ))}
           </motion.div>
+
         </div>
       </section>
     </>

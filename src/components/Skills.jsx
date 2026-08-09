@@ -4,13 +4,13 @@ import { skills } from "../data/skills";
 import { motion, AnimatePresence } from "framer-motion";
 
 const TABS = [
-  { label: "Programming Languages & Frameworks", key: "languages" },
-  { label: "Databases",                          key: "databases" },
-  { label: "DevOps & Tools",                     key: "devops"    },
-  { label: "AI & Computer Vision",               key: "ai"        },
-  { label: "UI/UX Design",                       key: "uiux"      },
-  { label: "Other Technologies",                 key: "other"     },
-  { label: "Soft Skills",                        key: "soft"      },
+  { label: "Languages & Frameworks", key: "languages" },
+  { label: "Databases",               key: "databases" },
+  { label: "DevOps & Tools",          key: "devops"    },
+  { label: "AI & Vision",             key: "ai"        },
+  { label: "UI/UX Design",            key: "uiux"      },
+  { label: "Other Tech",              key: "other"     },
+  { label: "Soft Skills",             key: "soft"      },
 ];
 
 const Skills = () => {
@@ -21,76 +21,89 @@ const Skills = () => {
   return (
     <section
       id="skills"
-      className="py-20 bg-gray-50 dark:bg-gray-950 transition-colors"
-      data-aos="fade-up"
+      className="py-20 relative bg-zinc-50 dark:bg-[#090d16] transition-colors"
     >
-      <div className="max-w-5xl mx-auto px-4">
-        <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-10 text-center">
-          Skills &amp; Expertise
-        </h2>
-
-        {/* Tab buttons */}
-        <div className="flex flex-wrap justify-center gap-2 mb-10">
-          {TABS.map((tab) => (
-            <button
-              key={tab.key}
-              onClick={() => setActiveTab(tab.key)}
-              className={`px-4 py-2 rounded-full font-medium text-sm focus:outline-none transition-all border
-                ${activeTab === tab.key
-                  ? "bg-blue-700 text-white dark:bg-blue-500 border-blue-700 dark:border-blue-400 shadow"
-                  : "bg-gray-200 text-gray-800 border-gray-300 hover:bg-gray-300 dark:bg-gray-800 dark:text-gray-200 dark:border-gray-700 dark:hover:bg-gray-700"
-                }`}
-              style={{ boxShadow: activeTab === tab.key ? "0 0 0 2px #38bdf8" : undefined }}
-            >
-              {tab.label}
-            </button>
-          ))}
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Section Header */}
+        <div className="flex flex-col items-center mb-12 text-center">
+          <span className="text-[11px] font-mono font-semibold text-indigo-600 dark:text-indigo-400 uppercase tracking-widest mb-1.5">
+            Capabilities &amp; Tools
+          </span>
+          <h2 className="text-2xl sm:text-3xl font-bold text-zinc-900 dark:text-white tracking-tight">
+            Skills &amp; Expertise
+          </h2>
+          <div className="w-10 h-1 bg-indigo-600 dark:bg-indigo-400 rounded-full mt-2.5" />
         </div>
 
-        {/* Skill cards */}
+        {/* Tab Buttons Strip */}
+        <div className="flex flex-wrap justify-center gap-2 mb-10">
+          {TABS.map((tab) => {
+            const isActive = activeTab === tab.key;
+            return (
+              <button
+                key={tab.key}
+                onClick={() => setActiveTab(tab.key)}
+                className={`relative px-3.5 py-1.5 rounded-xl font-medium text-xs transition-all focus:outline-none ${
+                  isActive 
+                    ? "text-white font-semibold" 
+                    : "bg-white dark:bg-zinc-900 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white border border-zinc-200/90 dark:border-zinc-800/80"
+                }`}
+              >
+                {isActive && (
+                  <motion.div
+                    layoutId="activeSkillTab"
+                    className="absolute inset-0 bg-indigo-600 dark:bg-indigo-500 rounded-xl shadow-md z-0"
+                    transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                  />
+                )}
+                <span className="relative z-10">{tab.label}</span>
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Skill Cards Grid with Clean Small Spacing */}
         <AnimatePresence mode="wait">
           <motion.div
             key={activeTab}
-            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5"
-            initial={{ opacity: 0, y: 24 }}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5"
+            initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -24 }}
-            transition={{ duration: 0.35, ease: "easeInOut" }}
+            exit={{ opacity: 0, y: -15 }}
+            transition={{ duration: 0.25, ease: "easeInOut" }}
           >
             {visibleSkills.map((skill, idx) => {
               const Icon = SiIcons[skill.icon];
               return (
                 <motion.div
                   key={`${activeTab}-${idx}`}
-                  className="flex items-center gap-4 bg-white dark:bg-gray-800 rounded-xl p-4 shadow-sm hover:shadow-md transition-shadow group cursor-default"
-                  initial={{ opacity: 0, scale: 0.88 }}
+                  className="flex items-start gap-3 bg-white dark:bg-zinc-900/70 p-3.5 sm:p-4 rounded-xl border border-zinc-200/90 dark:border-zinc-800/80 shadow-sm hover:shadow-md hover:border-indigo-500/40 dark:hover:border-indigo-500/40 transition-all duration-300 group"
+                  initial={{ opacity: 0, scale: 0.96 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{
-                    type: "spring",
-                    stiffness: 380,
-                    damping: 20,
-                    delay: idx * 0.05,
+                    duration: 0.25,
+                    delay: idx * 0.03,
                   }}
-                  whileHover={{ scale: 1.05 }}
                 >
-                  {/* Icon */}
-                  <div className="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-lg bg-blue-50 dark:bg-blue-900/40 group-hover:bg-blue-100 dark:group-hover:bg-blue-800/60 transition-colors">
+                  {/* Icon Badge */}
+                  <div className="w-8 h-8 rounded-lg bg-indigo-50 dark:bg-indigo-500/10 border border-indigo-200/50 dark:border-indigo-500/20 flex items-center justify-center text-indigo-600 dark:text-indigo-400 shrink-0 group-hover:scale-105 transition-transform">
                     {Icon ? (
-                      <Icon className="w-5 h-5 text-blue-500 dark:text-blue-400" />
+                      <Icon className="w-3.5 h-3.5" />
                     ) : (
-                      <span className="text-xs font-bold text-blue-500 dark:text-blue-400 leading-none text-center">
+                      <span className="text-[10px] font-mono font-bold">
                         {skill.name.slice(0, 2).toUpperCase()}
                       </span>
                     )}
                   </div>
 
-                  {/* Text */}
-                  <div className="min-w-0">
-                    <p className="text-sm font-semibold text-gray-900 dark:text-white truncate">
+                  {/* Skill Details */}
+                  <div className="min-w-0 flex-1">
+                    <h3 className="text-xs sm:text-sm font-bold text-zinc-900 dark:text-white truncate group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
                       {skill.name}
-                    </p>
+                    </h3>
                     {skill.description && (
-                      <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5 line-clamp-2">
+                      <p className="text-[11px] text-zinc-500 dark:text-zinc-400 mt-0.5 leading-relaxed line-clamp-2">
                         {skill.description}
                       </p>
                     )}
@@ -100,6 +113,7 @@ const Skills = () => {
             })}
           </motion.div>
         </AnimatePresence>
+
       </div>
     </section>
   );

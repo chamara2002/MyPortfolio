@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { FaSun, FaMoon } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 const ThemeToggle = () => {
   const [theme, setTheme] = useState(() => {
@@ -18,18 +19,24 @@ const ThemeToggle = () => {
     localStorage.theme = theme;
   }, [theme]);
 
+  const toggleTheme = () => {
+    setTheme(theme === "dark" ? "light" : "dark");
+  };
+
   return (
-    <button
+    <motion.button
       aria-label="Toggle Dark Mode"
-      className="p-2 rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
-      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+      onClick={toggleTheme}
+      whileTap={{ scale: 0.9 }}
+      whileHover={{ scale: 1.05 }}
+      className="p-2 rounded-xl bg-zinc-200/80 dark:bg-zinc-800/80 border border-zinc-300/60 dark:border-zinc-700/60 hover:bg-zinc-300/80 dark:hover:bg-zinc-700/80 transition-colors text-zinc-800 dark:text-zinc-200"
     >
       {theme === "dark" ? (
-        <FaSun className="w-5 h-5 text-yellow-400" />
+        <FaSun size={16} className="text-amber-400" />
       ) : (
-        <FaMoon className="w-5 h-5 text-gray-800" />
+        <FaMoon size={16} className="text-indigo-600" />
       )}
-    </button>
+    </motion.button>
   );
 };
 

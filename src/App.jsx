@@ -39,26 +39,18 @@ function App() {
     };
   }, []);
   return (
-    <div className="bg-white dark:bg-gray-900 transition-colors duration-500">
+    <div className="bg-zinc-50 dark:bg-[#090d16] text-zinc-800 dark:text-zinc-100 transition-colors duration-500 min-h-screen relative font-sans">
       <Cursor />
       <Navbar />
-      <AnimatePresence mode="wait" initial={false}>
-        <motion.main
-          key="main"
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -40 }}
-          transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
-        >
-          <Hero />
-          <Projects />
-          <Experience />
-          <Education />
-          <Skills />
-          <About />
-          <Contact />
-        </motion.main>
-      </AnimatePresence>
+      <main key="main">
+        <Hero />
+        <Projects />
+        <Experience />
+        <Education />
+        <Skills />
+        <About />
+        <Contact />
+      </main>
       <Footer />
     </div>
   );
