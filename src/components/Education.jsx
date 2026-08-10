@@ -50,20 +50,14 @@ const Education = () => {
                   transition={{ duration: 0.45, delay: idx * 0.12 }}
                   viewport={{ once: true }}
                 >
-                  {/* Timeline Indicator Node with Subtle Big and Small pulse */}
+                  {/* Timeline Indicator Node with Animated Icon */}
                   {isCurrent ? (
-                    <motion.div
-                      className="absolute -left-[17px] top-1.5 w-7 h-7 rounded-full bg-indigo-600 text-white dark:bg-indigo-500 border-2 border-white dark:border-[#090d16] ring-4 ring-indigo-200 dark:ring-indigo-900/60 flex items-center justify-center shadow-md z-20"
-                      animate={{ scale: [1, 1.1, 1] }}
-                      transition={{ repeat: Infinity, duration: 2.2, ease: "easeInOut" }}
-                    >
-                      <motion.span
-                        className="absolute -inset-1 rounded-full border border-indigo-500 dark:border-indigo-400 pointer-events-none"
-                        animate={{ scale: [1, 1.25, 1], opacity: [0.5, 0, 0.5] }}
-                        transition={{ repeat: Infinity, duration: 2.2, ease: "easeInOut" }}
-                      />
-                      <FaGraduationCap size={12} />
-                    </motion.div>
+                    <div className="absolute -left-[17px] top-1.5 w-7 h-7 rounded-full bg-indigo-600 text-white dark:bg-indigo-500 border-2 border-white dark:border-[#090d16] ring-4 ring-indigo-200 dark:ring-indigo-900/60 flex items-center justify-center shadow-md z-20">
+                      <span className="absolute -inset-1 rounded-full border border-indigo-500 dark:border-indigo-400 pointer-events-none animate-ripple-pulse" />
+                      <div className="animate-icon-wobble">
+                        <FaGraduationCap size={12} />
+                      </div>
+                    </div>
                   ) : (
                     <div className="absolute -left-[17px] top-1.5 w-7 h-7 rounded-full bg-white dark:bg-zinc-900 border-2 border-zinc-300 dark:border-zinc-700 flex items-center justify-center text-zinc-500 dark:text-zinc-400 shadow-md group-hover:scale-110 transition-transform">
                       <FaGraduationCap size={12} />
@@ -81,14 +75,14 @@ const Education = () => {
                           ? "bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 border-indigo-200/60 dark:border-indigo-500/20"
                           : "bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 border-zinc-200/60 dark:border-zinc-700/60"
                       }`}>
-                        <FaCalendarAlt size={9} />
+                        <FaCalendarAlt size={9} className={isCurrent ? "animate-pulse" : ""} />
                         {item.period}
                       </span>
                     </div>
 
                     {item.place && (
                       <p className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-zinc-700 dark:text-zinc-300">
-                        <FaUniversity className="text-indigo-600 dark:text-indigo-400 shrink-0" size={13} />
+                        <FaUniversity className={`text-indigo-600 dark:text-indigo-400 shrink-0 ${isCurrent ? "animate-icon-wobble" : ""}`} size={13} />
                         <span>{item.place}</span>
                       </p>
                     )}

@@ -15,13 +15,52 @@ const Footer = () => {
           
           {/* Column 1: Brand Info */}
           <div className="md:col-span-2 space-y-3 flex flex-col items-center text-center md:items-start md:text-left">
-            <div className="flex items-center gap-2 font-bold text-base text-zinc-900 dark:text-white">
-              <div className="px-2 py-0.5 rounded-lg bg-indigo-600 dark:bg-indigo-500 text-white font-mono font-extrabold text-[11px] tracking-wider flex items-center gap-0.5 shadow-sm border border-indigo-400/30 shrink-0">
-                <span className="text-indigo-200">&lt;</span>
-                <span>CP</span>
-                <span className="text-indigo-200">/&gt;</span>
+            <div id="footer-brand" className="flex items-center gap-2.5 font-bold text-base text-zinc-900 dark:text-white transition-opacity duration-500 opacity-0">
+              <div className="relative flex items-center justify-center p-1.5 shrink-0">
+                {/* Hexagon Loading Outline (Matching Logo Shape) */}
+                <svg 
+                  className="absolute inset-0 w-full h-full pointer-events-none" 
+                  viewBox="0 0 48 48"
+                >
+                  <path 
+                    d="M 24 3 L 42 13.5 L 42 34.5 L 24 45 L 6 34.5 L 6 13.5 Z" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    strokeWidth="2" 
+                    strokeLinejoin="round" 
+                    className="text-zinc-300 dark:text-zinc-700 opacity-30" 
+                  />
+                  <path 
+                    d="M 24 3 L 42 13.5 L 42 34.5 L 24 45 L 6 34.5 L 6 13.5 Z" 
+                    fill="none" 
+                    stroke="url(#footer-hex-gradient)" 
+                    strokeWidth="2.5" 
+                    strokeLinejoin="round" 
+                    strokeLinecap="round" 
+                    strokeDasharray="35 91"
+                    className="animate-hex-dash"
+                  />
+                  <defs>
+                    <linearGradient id="footer-hex-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#6366f1" />
+                      <stop offset="50%" stopColor="#38bdf8" />
+                      <stop offset="100%" stopColor="#a855f7" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+
+                <div 
+                  className="absolute inset-1 bg-indigo-500/15 dark:bg-indigo-400/15 blur-sm animate-pulse" 
+                  style={{ clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)' }} 
+                />
+
+                <img 
+                  src="/logo.png" 
+                  alt="Chamara Perera Logo" 
+                  className="w-10 h-10 object-contain relative z-10 drop-shadow-[0_2px_8px_rgba(99,102,241,0.25)]" 
+                />
               </div>
-              <span className="font-mono text-sm">Chamara Perera</span>
+              <span className="font-mono tracking-tight text-sm font-semibold">Chamara Perera</span>
             </div>
             <p className="text-xs leading-relaxed max-w-sm text-zinc-500 dark:text-zinc-400">
               I’m an IT undergraduate passionate about building web and software solutions that are functional, user-friendly, and innovative.
@@ -39,6 +78,7 @@ const Footer = () => {
               <li><a href="#experience" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Experience</a></li>
               <li><a href="#education" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Education</a></li>
               <li><a href="#skills" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Skills</a></li>
+              <li><a href="#certifications" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Certifications</a></li>
               <li><a href="#about" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">About</a></li>
               <li><a href="#contact" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Contact</a></li>
             </ul>
