@@ -16,6 +16,7 @@ import {
 import { FaMicrosoft, FaBrain } from "react-icons/fa6";
 import { SiFreecodecamp, SiPython, SiWordpress } from "react-icons/si";
 import { TbBrandCSharp } from "react-icons/tb";
+import CertificateModal from "./CertificateModal";
 
 const certificationsData = [
   {
@@ -89,6 +90,7 @@ const renderBrandIcon = (type) => {
 
 const Certifications = () => {
   const [selectedCert, setSelectedCert] = useState(null);
+  const [fullscreenImage, setFullscreenImage] = useState(null);
   const [copiedId, setCopiedId] = useState(null);
 
   const handleCopyId = (id, text) => {
@@ -232,68 +234,47 @@ const Certifications = () => {
 
       </div>
 
-      {/* Lightbox / Modal for Full Certificate View */}
+      {/* Certificate Details Modal (Matching ProjectModal Design) */}
+      {selectedCert && (
+        <CertificateModal
+          cert={selectedCert}
+          onClose={() => setSelectedCert(null)}
+          onExpandScreenshot={(img, title) => setFullscreenImage({ img, title })}
+        />
+      )}
+
+      {/* Full Screen Image Lightbox */}
       <AnimatePresence>
-        {selectedCert && (
+        {fullscreenImage && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            onClick={() => setSelectedCert(null)}
-            className="fixed inset-0 z-50 p-4 sm:p-6 md:p-10 bg-zinc-950/80 backdrop-blur-md flex items-center justify-center overflow-y-auto"
+            onClick={() => setFullscreenImage(null)}
+            className="fixed inset-0 z-[2000] p-4 bg-black/90 backdrop-blur-md flex items-center justify-center"
           >
             <motion.div
-              initial={{ scale: 0.9, opacity: 0, y: 20 }}
-              animate={{ scale: 1, opacity: 1, y: 0 }}
-              exit={{ scale: 0.9, opacity: 0, y: 20 }}
-              transition={{ type: "spring", damping: 25, stiffness: 300 }}
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
-              className="relative w-full max-w-4xl bg-white dark:bg-zinc-900 rounded-2xl border border-zinc-200 dark:border-zinc-800 shadow-2xl overflow-hidden flex flex-col max-h-[90vh]"
+              className="relative max-w-[92vw] max-h-[92vh] flex flex-col items-center"
             >
-              {/* Modal Header */}
-              <div className="p-4 sm:p-5 border-b border-zinc-200 dark:border-zinc-800 flex items-center justify-between bg-zinc-50 dark:bg-zinc-950/50">
-                <div>
-                  <h3 className="text-base sm:text-lg font-bold text-zinc-900 dark:text-white leading-tight">
-                    {selectedCert.title}
-                  </h3>
-                  <p className="text-xs text-zinc-500 dark:text-zinc-400 flex items-center gap-2 mt-0.5">
-                    <span>{selectedCert.issuer}</span>
-                    <span>•</span>
-                    <span>Issued {selectedCert.date}</span>
-                  </p>
-                </div>
+              <div className="w-full flex items-center justify-between mb-3 text-white/80">
+                <p className="text-xs font-medium">{fullscreenImage.title}</p>
+                <button
+                  onClick={() => setFullscreenImage(null)}
+                  className="p-1.5 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors"
+                  aria-label="Close image"
+                >
+                  <FaTimes size={16} />
+                </button>
               </div>
-
-              {/* Modal Image View Area */}
-              <div className="p-4 sm:p-6 flex-1 overflow-auto flex items-center justify-center bg-zinc-900/10 dark:bg-zinc-950/60 min-h-[300px]">
-                <img
-                  src={selectedCert.image}
-                  alt={selectedCert.title}
-                  className="max-w-full max-h-[65vh] object-contain rounded-lg shadow-lg border border-zinc-200 dark:border-zinc-800"
-                />
-              </div>
-
-              {/* Modal Footer */}
-              <div className="p-4 sm:p-5 border-t border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-950/50 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-mono">
-                <div className="flex items-center gap-2 text-zinc-600 dark:text-zinc-400">
-                  <span className="font-semibold text-zinc-900 dark:text-white">Credential ID:</span>
-                  <span className="bg-zinc-200 dark:bg-zinc-800 px-2 py-0.5 rounded text-[11px]">{selectedCert.credentialId}</span>
-                </div>
-
-                <div className="flex items-center gap-3 w-full sm:w-auto justify-end">
-                  {selectedCert.verifyUrl && (
-                    <a
-                      href={selectedCert.verifyUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="px-4 py-2 rounded-xl text-xs font-semibold bg-indigo-600 hover:bg-indigo-700 text-white transition-colors flex items-center gap-1.5 shadow-sm"
-                    >
-                      <span>Verify Credential</span>
-                      <FaExternalLinkAlt size={11} />
-                    </a>
-                  )}
-                </div>
-              </div>
+              <img
+                src={fullscreenImage.img}
+                alt={fullscreenImage.title}
+                className="max-w-full max-h-[82vh] object-contain rounded-xl border border-white/10 shadow-2xl"
+              />
             </motion.div>
           </motion.div>
         )}
