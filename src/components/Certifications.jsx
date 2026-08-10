@@ -262,13 +262,6 @@ const Certifications = () => {
                     <span>Issued {selectedCert.date}</span>
                   </p>
                 </div>
-                <button
-                  onClick={() => setSelectedCert(null)}
-                  className="p-2 rounded-xl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-colors"
-                  aria-label="Close modal"
-                >
-                  <FaTimes size={18} />
-                </button>
               </div>
 
               {/* Modal Image View Area */}
@@ -299,12 +292,6 @@ const Certifications = () => {
                       <FaExternalLinkAlt size={11} />
                     </a>
                   )}
-                  <button
-                    onClick={() => setSelectedCert(null)}
-                    className="px-4 py-2 rounded-xl text-xs font-semibold bg-zinc-200 dark:bg-zinc-800 hover:bg-zinc-300 dark:hover:bg-zinc-700 text-zinc-800 dark:text-zinc-200 transition-colors"
-                  >
-                    Close
-                  </button>
                 </div>
               </div>
             </motion.div>

@@ -26,7 +26,7 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="min-h-screen pt-16 sm:pt-20 pb-12 flex items-center justify-center relative overflow-hidden bg-grid-pattern"
+      className="min-h-screen pt-24 sm:pt-28 lg:pt-20 pb-20 sm:pb-24 lg:pb-16 flex items-center justify-center relative overflow-hidden bg-grid-pattern"
     >
       {/* Background Interactive Particle Canvas */}
       <div className="hidden md:block absolute inset-0 w-full h-full opacity-30 pointer-events-auto">
@@ -47,7 +47,7 @@ const Hero = () => {
       {/* Ambient Radial Gradient Background Light */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-indigo-500/10 dark:bg-indigo-600/10 blur-[120px] rounded-full pointer-events-none" />
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full z-10 -mt-6 sm:-mt-10">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full z-10 my-auto lg:-mt-6">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-14">
 
           {/* Main Hero Copy */}
@@ -67,7 +67,7 @@ const Hero = () => {
               Hello, I'm
             </span>
 
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-zinc-900 dark:text-white tracking-tight mb-2.5 leading-tight whitespace-nowrap">
+            <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-zinc-900 dark:text-white tracking-tight mb-2.5 leading-tight whitespace-nowrap">
               Chamara <span className="text-indigo-600 dark:text-indigo-400">Perera</span>
             </h1>
 
@@ -169,7 +169,7 @@ const Hero = () => {
 
       {/* Scroll Down Indicator */}
       <button
-        className="absolute bottom-5 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 text-zinc-400 dark:text-zinc-500 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors group cursor-pointer z-20"
+        className="hidden sm:flex absolute bottom-5 left-1/2 -translate-x-1/2 flex-col items-center gap-1.5 text-zinc-400 dark:text-zinc-500 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors group cursor-pointer z-20"
         onClick={() => {
           const el = document.getElementById('projects');
           if (el) el.scrollIntoView({ behavior: 'smooth' });
