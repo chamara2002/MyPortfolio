@@ -18,7 +18,7 @@ export const skills = [
   { name: "MariaDB",    icon: "SiMariadb",    description: "Open-source relational database",         category: "databases" },
   { name: "MongoDB",    icon: "SiMongodb",    description: "NoSQL database management",               category: "databases" },
 
-  // DevOps & Tools
+  // Infrastructure & Tools
   { name: "Docker",          icon: "SiDocker",        description: "Containerisation & deployment",            category: "devops" },
   { name: "Git",             icon: "SiGit",           description: "Version control with Git",                 category: "devops" },
   { name: "GitHub",          icon: "SiGithub",        description: "Code hosting and collaboration",           category: "devops" },

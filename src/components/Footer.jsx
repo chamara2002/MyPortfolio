@@ -7,6 +7,21 @@ const Footer = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const handleNavClick = (e, to) => {
+    e.preventDefault();
+    if (to === "#home") {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+    const targetId = to.replace('#', '');
+    const el = document.getElementById(targetId);
+    if (el) {
+      const scrollOffset = 15;
+      const y = el.getBoundingClientRect().top + window.pageYOffset - scrollOffset;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
+  };
+
   return (
     <footer className="bg-white dark:bg-[#060911] text-zinc-600 dark:text-zinc-400 pt-14 pb-7 border-t border-zinc-200/90 dark:border-zinc-800/80 transition-colors relative text-xs">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -73,14 +88,14 @@ const Footer = () => {
               Quick Links
             </h3>
             <ul className="space-y-1.5 text-xs font-medium flex flex-col items-center md:items-start">
-              <li><a href="#home" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Home</a></li>
-              <li><a href="#projects" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Projects</a></li>
-              <li><a href="#experience" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Experience</a></li>
-              <li><a href="#education" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Education</a></li>
-              <li><a href="#skills" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Skills</a></li>
-              <li><a href="#certifications" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Certifications</a></li>
-              <li><a href="#about" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">About</a></li>
-              <li><a href="#contact" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Contact</a></li>
+              <li><a href="#home" onClick={(e) => handleNavClick(e, '#home')} className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Home</a></li>
+              <li><a href="#projects" onClick={(e) => handleNavClick(e, '#projects')} className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Projects</a></li>
+              <li><a href="#experience" onClick={(e) => handleNavClick(e, '#experience')} className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Experience</a></li>
+              <li><a href="#education" onClick={(e) => handleNavClick(e, '#education')} className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Education</a></li>
+              <li><a href="#skills" onClick={(e) => handleNavClick(e, '#skills')} className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Skills</a></li>
+              <li><a href="#certifications" onClick={(e) => handleNavClick(e, '#certifications')} className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Certifications</a></li>
+              <li><a href="#about" onClick={(e) => handleNavClick(e, '#about')} className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">About</a></li>
+              <li><a href="#contact" onClick={(e) => handleNavClick(e, '#contact')} className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Contact</a></li>
             </ul>
           </div>
 

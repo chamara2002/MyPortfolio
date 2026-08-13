@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 const TABS = [
   { label: "Languages & Frameworks", key: "languages" },
   { label: "Databases",               key: "databases" },
-  { label: "DevOps & Tools",          key: "devops"    },
+  { label: "Infrastructure & Tools", key: "devops"    },
   { label: "AI & Vision",             key: "ai"        },
   { label: "UI/UX Design",            key: "uiux"      },
   { label: "Other Tech",              key: "other"     },

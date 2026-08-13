@@ -75,14 +75,14 @@ const Education = () => {
                           ? "bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 border-indigo-200/60 dark:border-indigo-500/20"
                           : "bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 border-zinc-200/60 dark:border-zinc-700/60"
                       }`}>
-                        <FaCalendarAlt size={9} className={isCurrent ? "animate-pulse" : ""} />
+                        <FaCalendarAlt size={9} />
                         {item.period}
                       </span>
                     </div>
 
                     {item.place && (
                       <p className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-zinc-700 dark:text-zinc-300">
-                        <FaUniversity className={`text-indigo-600 dark:text-indigo-400 shrink-0 ${isCurrent ? "animate-icon-wobble" : ""}`} size={13} />
+                        <FaUniversity className="text-indigo-600 dark:text-indigo-400 shrink-0" size={13} />
                         <span>{item.place}</span>
                       </p>
                     )}

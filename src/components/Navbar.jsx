@@ -154,11 +154,15 @@ const Navbar = () => {
     setVisible(true);
 
     setTimeout(() => {
+      if (to === "#home") {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        return;
+      }
       const targetId = to.replace('#', '');
       const el = document.getElementById(targetId);
       if (el) {
-        const navbarHeight = 70;
-        const y = el.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+        const scrollOffset = 15;
+        const y = el.getBoundingClientRect().top + window.pageYOffset - scrollOffset;
         window.scrollTo({ top: y, behavior: 'smooth' });
       }
     }, 10);

@@ -8,6 +8,10 @@
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
 
+  section[id] {
+    scroll-margin-top: 1rem;
+  }
+
   body {
     overflow-x: hidden;
   }

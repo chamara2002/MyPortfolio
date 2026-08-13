@@ -28,32 +28,20 @@ const About = () => {
           >
             <div className="space-y-4 text-zinc-600 dark:text-zinc-300 text-sm sm:text-base leading-relaxed">
               <p>
-                I’m <strong className="text-zinc-900 dark:text-white font-semibold">Chamara Perera</strong> (Lathpandurage Chamara Charika Perera) – Currently pursuing a BSc (Hons) in Information Technology Specializing in Information Technology at the Sri Lanka Institute of Information Technology (SLIIT). My journey in IT has given me both academic knowledge and practical industry experience, shaping me into a passionate developer who enjoys solving problems through technology.
+                I’m <strong className="text-zinc-900 dark:text-white font-semibold">Chamara Perera</strong> (Lathpandurage Chamara Charika Perera) – currently pursuing a BSc (Hons) in Information Technology, Specializing in Information Technology, at the Sri Lanka Institute of Information Technology (SLIIT). My journey in IT has given me both academic knowledge and practical industry experience, shaping me into a passionate developer who enjoys solving problems through technology.
               </p>
 
               <p>
-                During my internship at Airport and Aviation Services (Sri Lanka) (Private) Limited, I gained hands-on experience in software and web development, system support, server management, and application deployment.
+                During my internship at Airport and Aviation Services (Sri Lanka) (Private) Limited, I gained hands-on experience in software and web development, system support, server management, and application deployment — working across Windows Server and Linux (Red Hat) environments, and managing applications in production using tools like Docker, Git, and PM2.
               </p>
 
               <p>
-                I am a quick learner with strong creativity, problem-solving, teamwork, and leadership abilities, and I am passionate about advancing my career in software and web development, exploring emerging technologies such as cloud computing and AI/ML.
+                I am a quick learner with strong creativity, problem-solving, teamwork, and leadership abilities, and I am passionate about advancing my career in software and web development, exploring emerging technologies such as cloud computing, DevOps practices, and AI/ML.
               </p>
 
               <p>
-                My long-term goal is to grow as a skilled software engineer who can contribute to impactful IT solutions and innovative projects.
+                My long-term goal is to grow as a skilled software engineer who can contribute to impactful IT solutions and innovative projects, while continuously building expertise in automation, deployment, and scalable system design.
               </p>
-            </div>
-
-            {/* Download CV Action */}
-            <div className="flex justify-center pt-7 mt-5 border-t border-zinc-100 dark:border-zinc-800/80">
-              <a
-                href="/Chamara_Perera_Resume.pdf"
-                download
-                className="px-7 py-3 bg-indigo-600 hover:bg-indigo-700 dark:bg-indigo-500 dark:hover:bg-indigo-600 text-white rounded-xl text-sm font-semibold shadow-md shadow-indigo-500/20 transition-all flex items-center gap-2.5 group"
-              >
-                <span>Download Resume / CV</span>
-                <FaDownload className="group-hover:translate-y-0.5 transition-transform text-xs" />
-              </a>
             </div>
           </motion.div>
         </div>
